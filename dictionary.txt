@@ -1,4 +1,7 @@
 ﻿Dzień dobry;Cześć;Witam;
-Chcę;Chciałbym;Chciałabym;Chcielibyśmy;Chcemy;
+Chcę;Chciałbym;Chciałabym;Chcielibyśmy;Chcemy;Chcieć;
 Zamówienie;Zamówić;
 Saładka;Saładkę;
+Wegetariańskie;Wegetarian;Wegetarianom;
+Kartę;Menu;
+Napój;Picia;Picie;Drink;
