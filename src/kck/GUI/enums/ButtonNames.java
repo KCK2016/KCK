@@ -4,7 +4,7 @@ package kck.GUI.enums;
  * Created by JK on 2016-10-20.
  */
 public enum ButtonNames {
-    WAITER_BUTTON("waiter"), TABLE1("table1"), TABLE2("table3"), TABLE3("table3"), KITCHEN("kitchen");
+    WAITER_BUTTON("waiter"), TABLE1("table1"), TABLE2("table2"), TABLE3("table3"), KITCHEN("kitchen");
 
     private String name;
 
