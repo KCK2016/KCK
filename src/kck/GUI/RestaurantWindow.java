@@ -3,8 +3,6 @@ package kck.GUI;/**
  */
 
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
@@ -13,19 +11,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import kck.model.Waiter;
-
-import java.util.concurrent.TimeUnit;
+import kck.GUI.enums.ButtonNames;
+import kck.GUI.enums.WaiterButtonPosition;
+import kck.GUI.enums.PositionOnGrid;
 
 public class RestaurantWindow extends Application {
-    private static final String tableName = "Stolik";
     private static final int boardSize = 8;
     private GridPane gridPane;
-    private StackPane waiterPane;
     private Stage primaryStage;
-    private Waiter waiter;
+    private Button waiter;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -37,6 +33,14 @@ public class RestaurantWindow extends Application {
     }
 
     private void setBoard() {
+        setGridPane();
+        addWaiterToBoard();
+        createButtonsOnGrid();
+        createWaitersButtons();
+        setPrimaryStage();
+    }
+
+    private void setGridPane() {
         gridPane = new GridPane();
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
@@ -47,18 +51,6 @@ public class RestaurantWindow extends Application {
                 } else {
                     color = "grey";
                 }
-                if ((row == 2) && (col == 2)) {
-                    Text text = new Text(tableName);
-                    square.getChildren().add(text);
-                }
-                if ((row == 4) && (col == 4)) {
-                    Text text = new Text(tableName);
-                    square.getChildren().add(text);
-                }
-                if ((row == 4) && (col == 7)) {
-                    Text text = new Text(tableName);
-                    square.getChildren().add(text);
-                }
                 square.setStyle("-fx-background-color: " + color + ";");
                 gridPane.add(square, col, row);
             }
@@ -68,51 +60,51 @@ public class RestaurantWindow extends Application {
             gridPane.getColumnConstraints().add(new ColumnConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, HPos.CENTER, true));
             gridPane.getRowConstraints().add(new RowConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, VPos.CENTER, true));
         }
-        addWaiterToBoard();
-        createWaiterButton();
-        primaryStage.setScene(new Scene(gridPane, 400, 400));
+    }
+
+    private void setPrimaryStage() {
+        primaryStage.setScene(new Scene(gridPane, 800, 800));
         primaryStage.show();
     }
 
-    private void createWaiterButton() {
-        waiter = new Waiter();
-        waiter.setPositionX(0);
-        Button button = new Button("przycisk");
-        button.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            moveWaiterToSomeLocationEast(2, 0);
-        });
-        gridPane.add(button, 9, 9);
+    private void createWaitersButtons() {
+        createWaiterButton(ButtonNames.TABLE1, PositionOnGrid.WAITER_TABLE_ONE_POSITION, WaiterButtonPosition.FIRSTBUTTON);
+        createWaiterButton(ButtonNames.TABLE2, PositionOnGrid.WAITER_TABLE_TWO_POSITION, WaiterButtonPosition.SECONDBUTTON);
+        createWaiterButton(ButtonNames.TABLE3, PositionOnGrid.WAITER_TABLE_THREE_POSITION, WaiterButtonPosition.THIRDBUTTON);
+        createWaiterButton(ButtonNames.KITCHEN, PositionOnGrid.WAITER_KITCHEN_POSITION, WaiterButtonPosition.FOURFBUTTON);
     }
 
-    private void moveWaiterToSomeLocationEast(int x, int y) {
-        for (int i = 1; i <= x; i++) {
-            changeWaiterPosition(i, y);
-            waiter.setPositionX(i);
-        }
+    private void createButtonsOnGrid(){
+        addButtonToGrid(ButtonNames.TABLE1, PositionOnGrid.TABLE_ONE_POSITION);
+        addButtonToGrid(ButtonNames.TABLE2, PositionOnGrid.TABLE_TWO_POSITION);
+        addButtonToGrid(ButtonNames.TABLE3, PositionOnGrid.TABLE_THREE_POSITION);
+        addButtonToGrid(ButtonNames.KITCHEN, PositionOnGrid.KITCHEN_POSTION);
     }
 
     private void addWaiterToBoard() {
-        waiterPane = new StackPane();
-        makeWaiterPane();
-        gridPane.add(waiterPane, 0, 0);
+        waiter = new Button("waiter");
+        gridPane.add(waiter, PositionOnGrid.WAITER_KITCHEN_POSITION.getPositionX(), PositionOnGrid.WAITER_KITCHEN_POSITION.getPositionY());
     }
 
-    private void makeWaiterPane() {
-        Text text = new Text("KELNER");
-        waiterPane.getChildren().add(text);
-        waiterPane.setStyle("-fx-background-color: " + "yellow" + ";");
+    private void addButtonToGrid(ButtonNames buttonNames, PositionOnGrid positionOnGrid){
+        Button button = new Button(buttonNames.getName());
+        gridPane.add(button, positionOnGrid.getPositionX(), positionOnGrid.getPositionY());
+    }
+
+    private void createWaiterButton(ButtonNames buttonNames, PositionOnGrid positionOnGrid, WaiterButtonPosition waiterButtonPosition ){
+        Button button = new Button(buttonNames.getName());
+        changePositionAddButtonToGrid(button, event -> changeWaiterPosition(positionOnGrid.getPositionX(), positionOnGrid.getPositionY()),
+                waiterButtonPosition.getPositionX(), waiterButtonPosition.getPositionY());
+    }
+    private void changePositionAddButtonToGrid(Button button, EventHandler<MouseEvent> mouseEventEventHandler, int x, int y) {
+        button.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEventEventHandler);
+        gridPane.add(button, x, y);
     }
 
     private void changeWaiterPosition(int x, int y) {
-        gridPane.getChildren().remove(waiterPane);
-        gridPane.add(waiterPane, x, y);
-//        primaryStage.setScene(new Scene(gridPane, 400, 400));
-        primaryStage.show();
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+        gridPane.getChildren().removeAll(waiter);
+        gridPane.add(waiter, x, y);
     }
+
+
 }
