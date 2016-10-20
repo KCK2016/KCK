@@ -36,7 +36,7 @@ public class RestaurantWindow extends Application {
         setGridPane();
         addWaiterToBoard();
         createButtonsOnGrid();
-        createWaitersButtons();
+        createButtonsToControlWaiter();
         setPrimaryStage();
     }
 
@@ -67,11 +67,11 @@ public class RestaurantWindow extends Application {
         primaryStage.show();
     }
 
-    private void createWaitersButtons() {
-        createWaiterButton(ButtonNames.TABLE1, PositionOnGrid.WAITER_TABLE_ONE_POSITION, WaiterButtonPosition.FIRSTBUTTON);
-        createWaiterButton(ButtonNames.TABLE2, PositionOnGrid.WAITER_TABLE_TWO_POSITION, WaiterButtonPosition.SECONDBUTTON);
-        createWaiterButton(ButtonNames.TABLE3, PositionOnGrid.WAITER_TABLE_THREE_POSITION, WaiterButtonPosition.THIRDBUTTON);
-        createWaiterButton(ButtonNames.KITCHEN, PositionOnGrid.WAITER_KITCHEN_POSITION, WaiterButtonPosition.FOURFBUTTON);
+    private void createButtonsToControlWaiter() {
+        createButtonToControlWaiter(ButtonNames.TABLE1, PositionOnGrid.WAITER_TABLE_ONE_POSITION, WaiterButtonPosition.FIRSTBUTTON);
+        createButtonToControlWaiter(ButtonNames.TABLE2, PositionOnGrid.WAITER_TABLE_TWO_POSITION, WaiterButtonPosition.SECONDBUTTON);
+        createButtonToControlWaiter(ButtonNames.TABLE3, PositionOnGrid.WAITER_TABLE_THREE_POSITION, WaiterButtonPosition.THIRDBUTTON);
+        createButtonToControlWaiter(ButtonNames.KITCHEN, PositionOnGrid.WAITER_KITCHEN_POSITION, WaiterButtonPosition.FOURFBUTTON);
     }
 
     private void createButtonsOnGrid(){
@@ -91,12 +91,12 @@ public class RestaurantWindow extends Application {
         gridPane.add(button, positionOnGrid.getPositionX(), positionOnGrid.getPositionY());
     }
 
-    private void createWaiterButton(ButtonNames buttonNames, PositionOnGrid positionOnGrid, WaiterButtonPosition waiterButtonPosition ){
+    private void createButtonToControlWaiter(ButtonNames buttonNames, PositionOnGrid positionOnGrid, WaiterButtonPosition waiterButtonPosition ){
         Button button = new Button(buttonNames.getName());
-        changePositionAddButtonToGrid(button, event -> changeWaiterPosition(positionOnGrid.getPositionX(), positionOnGrid.getPositionY()),
+        changeWaiterPositionAddButtonToGrid(button, event -> changeWaiterPosition(positionOnGrid.getPositionX(), positionOnGrid.getPositionY()),
                 waiterButtonPosition.getPositionX(), waiterButtonPosition.getPositionY());
     }
-    private void changePositionAddButtonToGrid(Button button, EventHandler<MouseEvent> mouseEventEventHandler, int x, int y) {
+    private void changeWaiterPositionAddButtonToGrid(Button button, EventHandler<MouseEvent> mouseEventEventHandler, int x, int y) {
         button.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEventEventHandler);
         gridPane.add(button, x, y);
     }
