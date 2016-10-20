@@ -82,7 +82,7 @@ public class RestaurantWindow extends Application {
     }
 
     private void addWaiterToBoard() {
-        waiter = new Button("waiter");
+        waiter = new Button(ButtonNames.WAITER_BUTTON.getName());
         gridPane.add(waiter, PositionOnGrid.WAITER_KITCHEN_POSITION.getPositionX(), PositionOnGrid.WAITER_KITCHEN_POSITION.getPositionY());
     }
 
