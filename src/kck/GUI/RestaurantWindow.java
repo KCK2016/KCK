@@ -24,6 +24,7 @@ public class RestaurantWindow extends Application {
     private Button waiter;
     private TextArea textArea;
     private String inputText;
+    private BorderPane mainBorderPane;
 
     public static void main(String[] args) {
         launch(args);
@@ -37,12 +38,19 @@ public class RestaurantWindow extends Application {
 
     private void setBoard() {
         setGridPane();
+        createTextArea();
+        makeMainGrid();
         addWaiterToBoard();
         createButtonsOnGrid();
         createButtonsToControlWaiter();
         addTextButton();
-        createTextArea();
         setPrimaryStage();
+    }
+
+    private void makeMainGrid(){
+        mainBorderPane = new BorderPane();
+        mainBorderPane.setCenter(gridPane);
+        mainBorderPane.setBottom(textArea);
     }
 
     private void setGridPane() {
@@ -68,7 +76,7 @@ public class RestaurantWindow extends Application {
     }
 
     private void setPrimaryStage() {
-        primaryStage.setScene(new Scene(gridPane, 1200, 1200));
+        primaryStage.setScene(new Scene(mainBorderPane, 600, 600));
         primaryStage.show();
     }
 
@@ -113,7 +121,6 @@ public class RestaurantWindow extends Application {
 
     private void createTextArea() {
         textArea = new TextArea("Type here");
-        gridPane.add(textArea, ControlButtonPosition.TEXT_AREA_POSTION.getPositionX(), ControlButtonPosition.TEXT_AREA_POSTION.getPositionY());
     }
 
     private void addTextButton() {
