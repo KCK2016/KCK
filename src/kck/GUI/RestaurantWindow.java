@@ -4,7 +4,6 @@ package kck.GUI;/**
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
@@ -69,7 +68,7 @@ public class RestaurantWindow extends Application {
     }
 
     private void setPrimaryStage() {
-        primaryStage.setScene(new Scene(gridPane, 800, 800));
+        primaryStage.setScene(new Scene(gridPane, 1200, 1200));
         primaryStage.show();
     }
 
@@ -84,7 +83,7 @@ public class RestaurantWindow extends Application {
         addButtonToGrid(ButtonNames.TABLE1, PositionOnGrid.TABLE_ONE_POSITION);
         addButtonToGrid(ButtonNames.TABLE2, PositionOnGrid.TABLE_TWO_POSITION);
         addButtonToGrid(ButtonNames.TABLE3, PositionOnGrid.TABLE_THREE_POSITION);
-        addButtonToGrid(ButtonNames.KITCHEN, PositionOnGrid.KITCHEN_POSTION);
+        addButtonToGrid(ButtonNames.KITCHEN, PositionOnGrid.KITCHEN_POSITION);
     }
 
     private void addWaiterToBoard() {
@@ -114,7 +113,7 @@ public class RestaurantWindow extends Application {
 
     private void createTextArea() {
         textArea = new TextArea("Type here");
-        gridPane.add(textArea, 0, 9);
+        gridPane.add(textArea, ControlButtonPosition.TEXT_AREA_POSTION.getPositionX(), ControlButtonPosition.TEXT_AREA_POSTION.getPositionY());
     }
 
     private void addTextButton() {

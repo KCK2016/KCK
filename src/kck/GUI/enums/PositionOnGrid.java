@@ -11,7 +11,8 @@ public enum PositionOnGrid {
     TABLE_ONE_POSITION(2,2),
     TABLE_TWO_POSITION(4,4),
     TABLE_THREE_POSITION(4,7),
-    KITCHEN_POSTION(0,0);
+    KITCHEN_POSITION(0,0);
+
 
     private int positionX;
     private int positionY;

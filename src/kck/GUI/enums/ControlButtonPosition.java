@@ -8,7 +8,8 @@ public enum ControlButtonPosition {
     SECONDBUTTON(9, 2),
     THIRDBUTTON(9, 4),
     FOURFBUTTON(9,6),
-    TEXTBUTTON(9, 9);
+    TEXTBUTTON(9, 9),
+    TEXT_AREA_POSTION(0, 9);
 
     private int positionX;
     private int positionY;
