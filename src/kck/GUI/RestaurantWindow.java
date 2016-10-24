@@ -4,16 +4,18 @@ package kck.GUI;/**
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import kck.GUI.enums.ButtonNames;
-import kck.GUI.enums.WaiterButtonPosition;
+import kck.GUI.enums.ControlButtonPosition;
 import kck.GUI.enums.PositionOnGrid;
 
 public class RestaurantWindow extends Application {
@@ -21,6 +23,8 @@ public class RestaurantWindow extends Application {
     private GridPane gridPane;
     private Stage primaryStage;
     private Button waiter;
+    private TextArea textArea;
+    private String inputText;
 
     public static void main(String[] args) {
         launch(args);
@@ -37,6 +41,8 @@ public class RestaurantWindow extends Application {
         addWaiterToBoard();
         createButtonsOnGrid();
         createButtonsToControlWaiter();
+        addTextButton();
+        createTextArea();
         setPrimaryStage();
     }
 
@@ -68,10 +74,10 @@ public class RestaurantWindow extends Application {
     }
 
     private void createButtonsToControlWaiter() {
-        createButtonToControlWaiter(ButtonNames.TABLE1, PositionOnGrid.WAITER_TABLE_ONE_POSITION, WaiterButtonPosition.FIRSTBUTTON);
-        createButtonToControlWaiter(ButtonNames.TABLE2, PositionOnGrid.WAITER_TABLE_TWO_POSITION, WaiterButtonPosition.SECONDBUTTON);
-        createButtonToControlWaiter(ButtonNames.TABLE3, PositionOnGrid.WAITER_TABLE_THREE_POSITION, WaiterButtonPosition.THIRDBUTTON);
-        createButtonToControlWaiter(ButtonNames.KITCHEN, PositionOnGrid.WAITER_KITCHEN_POSITION, WaiterButtonPosition.FOURFBUTTON);
+        createButtonToControlWaiter(ButtonNames.TABLE1, PositionOnGrid.WAITER_TABLE_ONE_POSITION, ControlButtonPosition.FIRSTBUTTON);
+        createButtonToControlWaiter(ButtonNames.TABLE2, PositionOnGrid.WAITER_TABLE_TWO_POSITION, ControlButtonPosition.SECONDBUTTON);
+        createButtonToControlWaiter(ButtonNames.TABLE3, PositionOnGrid.WAITER_TABLE_THREE_POSITION, ControlButtonPosition.THIRDBUTTON);
+        createButtonToControlWaiter(ButtonNames.KITCHEN, PositionOnGrid.WAITER_KITCHEN_POSITION, ControlButtonPosition.FOURFBUTTON);
     }
 
     private void createButtonsOnGrid(){
@@ -91,10 +97,10 @@ public class RestaurantWindow extends Application {
         gridPane.add(button, positionOnGrid.getPositionX(), positionOnGrid.getPositionY());
     }
 
-    private void createButtonToControlWaiter(ButtonNames buttonNames, PositionOnGrid positionOnGrid, WaiterButtonPosition waiterButtonPosition ){
+    private void createButtonToControlWaiter(ButtonNames buttonNames, PositionOnGrid positionOnGrid, ControlButtonPosition controlButtonPosition){
         Button button = new Button(buttonNames.getName());
         changeWaiterPositionAddButtonToGrid(button, event -> changeWaiterPosition(positionOnGrid.getPositionX(), positionOnGrid.getPositionY()),
-                waiterButtonPosition.getPositionX(), waiterButtonPosition.getPositionY());
+                controlButtonPosition.getPositionX(), controlButtonPosition.getPositionY());
     }
     private void changeWaiterPositionAddButtonToGrid(Button button, EventHandler<MouseEvent> mouseEventEventHandler, int x, int y) {
         button.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEventEventHandler);
@@ -106,5 +112,18 @@ public class RestaurantWindow extends Application {
         gridPane.add(waiter, x, y);
     }
 
+    private void createTextArea() {
+        textArea = new TextArea("Type here");
+        gridPane.add(textArea, 0, 9);
+    }
+
+    private void addTextButton() {
+        Button button = new Button(ButtonNames.TEXT_BUTTON.getName());
+        gridPane.add(button, ControlButtonPosition.TEXTBUTTON.getPositionX(), ControlButtonPosition.TEXTBUTTON.getPositionY());
+        button.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            inputText = textArea.getText();
+            textArea.clear();
+        });
+    }
 
 }
