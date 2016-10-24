@@ -32,7 +32,10 @@ public class KCK {
         Map<String, Integer> dicMap = dic.dictionaryMap(dictionary);
         
         
-        
+        //cpokolwiek
+
+
+
         // pętla do zamiany słów na wartości z Treemap
         
         for (int i=0; i<list.length; i++) {
