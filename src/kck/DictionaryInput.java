@@ -19,10 +19,10 @@ import java.util.TreeMap;
  *
  * @author Adrian
  */
-public class Dictionaty {
+public class DictionaryInput {
     
     /**
-     *
+     *   zmienic na wyrazenia regularne
      * @throws java.io.IOException
      */
     public List<String> loadDictionary() throws IOException {
@@ -33,7 +33,7 @@ public class Dictionaty {
         //for (String a: list) System.out.println(a);
         return list;
         }
-        else System.out.println("Zła ścieżka");
+        else System.out.println("Zła ścieżka do pliku ze slowami");
         return null;
     }
     
