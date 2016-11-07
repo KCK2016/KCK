@@ -8,73 +8,66 @@ package kck;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 
 /**
- *
  * @author s152483
  */
 
 public class Menu {
-            
-    String snap;
-	String soups;
-	String secondDishes;
-	String dessert;
-	String coldDrinks;
-	String hotDrinks;
-	String alcohol;
-	
-        String[] snapArray;
-        String[] soupsArray;
-        String[] secondDishesArray;
-        String[] dessertArray;
-        String[] coldDrinksArray;
-        String[] hotDrinksArray;
-        String[] alcoholArray;
 
+    private String snap;
+    private String soups;
+    private String secondDishes;
+    private String dessert;
+    private String coldDrinks;
+    private String hotDrinks;
+    private String alcohol;
 
-	void getMenus() throws IOException
-	{
-            try ( 
-                //String args1 = "baza.txt";
-                    FileReader fileReader = new FileReader("baza.txt")
-                    ) {
-                BufferedReader bufferReader = new BufferedReader(fileReader);
-                
-                while (bufferReader.read() != -1)
-                {
-                    snap = bufferReader.readLine();
-                    soups = bufferReader.readLine();
-                    secondDishes = bufferReader.readLine();
-                    dessert = bufferReader.readLine();
-                    coldDrinks = bufferReader.readLine();
-                    hotDrinks = bufferReader.readLine();
-                    alcohol = bufferReader.readLine();
-                    
-                }
-            }	
-	}
-        
-        public void splitMenuIntoArray()
-        {
-                    snapArray = snap.split(",");
-                    
-                    for (String token : snapArray)
-                    {
-                        System.out.println(token);
-                    }
-                    
-                    
-                    soupsArray = soups.split(",");
-                    secondDishesArray = secondDishes.split(",");
-                    soupsArray = soups.split(",");
-                    dessertArray = dessert.split(",");
-                    coldDrinksArray = coldDrinks.split(",");
-                    hotDrinksArray = hotDrinks.split(",");
-                    alcoholArray = alcohol.split(",");
-                    
+    private String[] snapArray;
+    private String[] soupsArray;
+    private String[] secondDishesArray;
+    private String[] dessertArray;
+    private String[] coldDrinksArray;
+    private String[] hotDrinksArray;
+    private String[] alcoholArray;
+
+    public Menu() {
+        getMenus();
+    }
+
+    public void getMenus()  {
+        FileReader fileReader;
+        BufferedReader bufferReader;
+        try {
+             fileReader = new FileReader("baza.txt");
+            bufferReader = new BufferedReader(fileReader);
+            while (bufferReader.read() != -1) {
+                snap = bufferReader.readLine();
+                soups = bufferReader.readLine();
+                secondDishes = bufferReader.readLine();
+                dessert = bufferReader.readLine();
+                coldDrinks = bufferReader.readLine();
+                hotDrinks = bufferReader.readLine();
+                alcohol = bufferReader.readLine();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
+    }
 
-            
-    
+    public void splitMenuIntoArray() {
+        snapArray = snap.split(",");
+
+        for (String token : snapArray) {
+            System.out.println(token);
+        }
+        soupsArray = soups.split(",");
+        secondDishesArray = secondDishes.split(",");
+        soupsArray = soups.split(",");
+        dessertArray = dessert.split(",");
+        coldDrinksArray = coldDrinks.split(",");
+        hotDrinksArray = hotDrinks.split(",");
+        alcoholArray = alcohol.split(",");
+    }
 }
