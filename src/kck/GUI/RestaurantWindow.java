@@ -123,6 +123,10 @@ public class RestaurantWindow extends Application {
         textArea = new TextArea("Type here");
     }
 
+    public String getInputText() {
+        return inputText;
+    }
+
     private void addTextButton() {
         Button button = new Button(ButtonNames.TEXT_BUTTON.getName());
         gridPane.add(button, ControlButtonPosition.TEXTBUTTON.getPositionX(), ControlButtonPosition.TEXTBUTTON.getPositionY());
@@ -130,6 +134,8 @@ public class RestaurantWindow extends Application {
             inputText = textArea.getText();
             textArea.clear();
         });
+
     }
+
 
 }

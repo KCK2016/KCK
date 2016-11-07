@@ -6,11 +6,8 @@
 package kck;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -19,24 +16,24 @@ import java.util.logging.Logger;
 
 public class Menu {
             
-        String przystawki;
-	String zupy;
-	String drugie_dania;
-	String desery;
-	String napoje_zimne;
-	String napoje_cieple;
-	String alkohole;
+    String snap;
+	String soups;
+	String secondDishes;
+	String dessert;
+	String coldDrinks;
+	String hotDrinks;
+	String alcohol;
 	
-        String[] Tab_przystawki;
-        String[] Tab_zupy;
-        String[] Tab_drugie_dania;
-        String[] Tab_desery;
-        String[] Tab_napoje_zimne;
-        String[] Tab_napoje_cieple;
-        String[] Tab_alkohole;
+        String[] snapArray;
+        String[] soupsArray;
+        String[] secondDishesArray;
+        String[] dessertArray;
+        String[] coldDrinksArray;
+        String[] hotDrinksArray;
+        String[] alcoholArray;
 
 
-	void pobieranie_karty_dan() throws IOException
+	void getMenus() throws IOException
 	{
             try ( 
                 //String args1 = "baza.txt";
@@ -46,35 +43,35 @@ public class Menu {
                 
                 while (bufferReader.read() != -1)
                 {
-                    przystawki = bufferReader.readLine();
-                    zupy = bufferReader.readLine();
-                    drugie_dania = bufferReader.readLine();
-                    desery = bufferReader.readLine();
-                    napoje_zimne = bufferReader.readLine();
-                    napoje_cieple = bufferReader.readLine();
-                    alkohole = bufferReader.readLine();
+                    snap = bufferReader.readLine();
+                    soups = bufferReader.readLine();
+                    secondDishes = bufferReader.readLine();
+                    dessert = bufferReader.readLine();
+                    coldDrinks = bufferReader.readLine();
+                    hotDrinks = bufferReader.readLine();
+                    alcohol = bufferReader.readLine();
                     
                 }
             }	
 	}
         
-        public void dania_jako_tokeny()
+        public void splitMenuIntoArray()
         {
-                    Tab_przystawki = przystawki.split(",");
+                    snapArray = snap.split(",");
                     
-                    for (String token : Tab_przystawki)
+                    for (String token : snapArray)
                     {
                         System.out.println(token);
                     }
                     
                     
-                    Tab_zupy = zupy.split(",");
-                    Tab_drugie_dania = drugie_dania.split(",");
-                    Tab_zupy = zupy.split(",");
-                    Tab_desery = desery.split(",");
-                    Tab_napoje_zimne = napoje_zimne.split(",");
-                    Tab_napoje_cieple = napoje_cieple.split(",");
-                    Tab_alkohole = alkohole.split(",");
+                    soupsArray = soups.split(",");
+                    secondDishesArray = secondDishes.split(",");
+                    soupsArray = soups.split(",");
+                    dessertArray = dessert.split(",");
+                    coldDrinksArray = coldDrinks.split(",");
+                    hotDrinksArray = hotDrinks.split(",");
+                    alcoholArray = alcohol.split(",");
                     
         }
 
