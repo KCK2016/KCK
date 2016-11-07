@@ -35,6 +35,7 @@ public class OrderHandler {
         finishedOrder.append(orderList.stream().map(MenuItem::toString).collect(Collectors.joining("\n")));
         finishedOrder.append("\nCałkowity koszt: ");
         finishedOrder.append(getTotalPrice());
+        finishedOrder.append("zł");
         return finishedOrder.toString();
     }
 
