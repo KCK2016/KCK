@@ -8,7 +8,6 @@ package kck;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 
 /**
  * @author s152483
@@ -32,16 +31,14 @@ public class Menu {
     private String[] hotDrinksArray;
     private String[] alcoholArray;
 
-    public Menu() {
-        getMenus();
-    }
 
-    public void getMenus()  {
-        FileReader fileReader;
-        BufferedReader bufferReader;
-        try {
-             fileReader = new FileReader("baza.txt");
-            bufferReader = new BufferedReader(fileReader);
+    void getMenus() throws IOException {
+        try (
+                //private String args1 = "baza.txt";
+                FileReader fileReader = new FileReader("baza.txt")
+        ) {
+            BufferedReader bufferReader = new BufferedReader(fileReader);
+
             while (bufferReader.read() != -1) {
                 snap = bufferReader.readLine();
                 soups = bufferReader.readLine();
@@ -50,9 +47,8 @@ public class Menu {
                 coldDrinks = bufferReader.readLine();
                 hotDrinks = bufferReader.readLine();
                 alcohol = bufferReader.readLine();
+
             }
-        } catch (Exception e) {
-            System.out.println(e);
         }
     }
 
@@ -62,6 +58,8 @@ public class Menu {
         for (String token : snapArray) {
             System.out.println(token);
         }
+
+
         soupsArray = soups.split(",");
         secondDishesArray = secondDishes.split(",");
         soupsArray = soups.split(",");
@@ -69,5 +67,8 @@ public class Menu {
         coldDrinksArray = coldDrinks.split(",");
         hotDrinksArray = hotDrinks.split(",");
         alcoholArray = alcohol.split(",");
+
     }
+
+
 }

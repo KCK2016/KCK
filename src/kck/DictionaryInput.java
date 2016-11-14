@@ -39,9 +39,18 @@ public class DictionaryInput {
     
     public Map<String, Integer> dictionaryMap(List<String> list){
         Map<String, Integer> map = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-        int counter = 1;
+        int counter = 0;
         for (String a : list) {
-            String[] tab = a.trim().split(";");
+
+            // blad formatu ??
+
+            String[] int_representative = a.trim().split(">");
+            int someInt =  Integer.valueOf(int_representative[0]);
+            System.out.print(someInt);
+            System.out.println("");
+
+
+            String[] tab = int_representative[1].split(";");
             for (int i=0; i < tab.length; i++) map.put(tab[i], counter);
             counter ++;
         }
