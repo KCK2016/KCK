@@ -1,8 +1,8 @@
-﻿Dzień dobry;Cześć;Witam;
-Chcę;Chciałbym;Chciałabym;Chcielibyśmy;Chcemy;Chcieć;Proszę;Prosimy;
-dziękuję
-Zamówienie;Zamówić;
-Saładka;Saładkę;
-Wegetariańskie;Wegetarian;Wegetarianom;
-Kartę;Menu;
-Napój;Picia;Picie;Drink;
+﻿11>Dzień_dobry;Cześć;Witam;
+1>Chcę;Chciałbym;Chciałabym;Chcielibyśmy;Chcemy;Chcieć;Proszę;Prosimy;
+2>dziękuję
+3>Zamówienie;Zamówić;
+4>Saładka;Saładkę;
+5>Wegetariańskie;Wegetarian;Wegetarianom;
+6>Kartę;Menu;
+7>Napój;Picia;Picie;Drink;

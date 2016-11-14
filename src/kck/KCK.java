@@ -16,40 +16,36 @@ public class KCK {
     /**
      * @param args the command line arguments
      */
-
-
-    static String[] inputParse(String input) throws IOException {
-        DictionaryInput dictionaryInput = new DictionaryInput() {};
-        List<String> dictionaryList = dictionaryInput.loadDictionary();
-
-        //zamiana stringa na tablicę slow
-        String[] inputTab;
-        inputTab = input.trim().toLowerCase().split("[ ,.-]+");
-
-        //TreeMap dzieki której zmienimy słowa odmienione na nieodmienione
-        Map<String, Integer> dicMap = dictionaryInput.dictionaryMap(dictionaryList);
-        // petla do zamiany slow na wartosci z Treemap
-
-        for (int i=0; i<inputTab.length; i++) {
-            if(dicMap.containsKey(inputTab[i]) ) {
-                int key = dicMap.get(inputTab[i]);
-                inputTab[i] = Integer.toString(key);
-            }}
-        return inputTab;
-    }
-
-
-
-
     public static void main(String[] args) throws IOException {
         
-
+        DictionaryInput dic = new DictionaryInput() {};
+        List<String> dictionary = dic.loadDictionary();
         
         //Testowy string input
         String any;
-        any = "prosze o Cześć do picia, oraz Saładkę. Dziękuję." ;
+        any = "Dzień dobry, proszę  o coś do picia, oraz Saładkę. Dzięuję." ;
+        String[] list = any.trim().split("[ ,.-]+");
+        
+        
+        //TreeMap dzieki której zmienimy słowa odmienione na nieodmienione
+        
+        Map<String, Integer> dicMap = dic.dictionaryMap(dictionary);
+        
+        
+        //cpokolwiek
 
-        String[] list = inputParse(any);
+
+
+        // pętla do zamiany słów na wartości z Treemap
+        
+        for (int i=0; i<list.length; i++) {
+           if(dicMap.containsKey(list[i]) ) {
+               int key = dicMap.get(list[i]);
+                 list[i] = Integer.toString(key);
+           }}
+        
+        // Stworzyć kolejny plik .txt albo strukture danych w kótrych będą zawarte reakce na dane słowa lub zestawy słów
+        
         for (String a: list) System.out.println(a);
         
         
