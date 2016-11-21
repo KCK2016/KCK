@@ -1,0 +1,106 @@
+Czego sobie Panstwo zycza?
+
+Chcialbym zamowic placki ziemniaczane
+
+dobrze, czy chce Pan cos do picia?
+
+nie, dziekuje
+
+a mo¿e moglbym zaproponowaæ panu cos na deser?
+
+tak, poprosze lody waniliowe
+
+dobrze
+to wszystko?
+
+nie, poprosze cole
+
+dobrze, czy to wszystko?
+
+to wszystko, dziekuje
+
+dziekuje
+
+----------------------------------------
+
+czy mogê przyj¹æ zamówienie?
+
+nie
+
+dobrze, w takim razie przyjdê jak pan siê zdecyduje
+
+----------------------------------------
+
+czy mogê przyj¹æ zamówienie?
+
+A: poprosze schabowego z ziemniakami
+
+czy zyczy sobie pan cos na 1sze danie albo do picia?
+
+danie dnia oraz herbate
+
+jako danie dnia mamy zupe pomidorowa albo zupe pieczarkowa. Herbata z cytryna czy bez dodatkow?
+
+poprosze pomidorowke i herbate z cytryna
+
+dobrze
+
+A co dla pani? (B)
+
+B: chcialabym zamowic pizze 10
+
+pizze nr. 10
+
+jakie sosy do tego?
+
+jakie sa do wyboru
+
+pomidorowy/czosnek/ziola
+
+pomidorowy
+
+Zyczy sobie pani cos do picia?
+
+sok pomaranczowy poprosze
+
+dobrze
+A dla pana? ( C )
+
+C: co pan poleca?
+
+Polecam filet z kurczaka z ryzem i szpinakiem.
+
+wiêc poprosze to oraz sprite do picia
+
+dobrze
+dziekuje
+
+----------------------------------------
+
+Dzien dobry, czego sobie Panstwo zycza?
+
+chcielibysmy zamowic danie A, danie B
+
+Czy zycza sobie Pañstwo cos co picia?
+
+nie, dziekujemy
+
+A mo¿e deser?
+
+poprosimy tort czekoladowy
+
+dobrze.
+
+----------------------------------------
+
+// RACHUNEK
+
+rachunek prosze
+
+dobrze
+nale¿y siê 50 z³.
+Platnosc karta, gotowka?
+
+gotowka
+
+Dziêkujemy i zapraszamy ponownie.
