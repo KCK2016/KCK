@@ -1,8 +1,39 @@
-﻿11>Dzień_dobry;Cześć;Witam;
-1>Chcę;Chciałbym;Chciałabym;Chcielibyśmy;Chcemy;Chcieć;Proszę;Prosimy;
-2>dziękuję
-3>Zamówienie;Zamówić;
-4>Saładka;Saładkę;
-5>Wegetariańskie;Wegetarian;Wegetarianom;
-6>Kartę;Menu;
-7>Napój;Picia;Picie;Drink;
+﻿Dzień dobry,0,Dzień dobry
+Witam,0,Witam
+Chcę,1,Chcę
+Chciałbym,1,Chciałbym
+Chciałabym,1,Chciałabym
+Proszę,1,Proszę
+Poproszę,1,Poproszę
+Poprosimy,1,Poprosimy
+Chcielibyśmy,2,Chcielibyśmy
+Chcemy,2,Chcemy
+Prosimy,2,Prosimy
+Poprosimy,2,Poprosimy
+[.],4,[.]
+pierogi z mięsem,10,pierogi z mięsem
+pierogi po rusku,10,pierogi po rusku,pierogi ruskie,ruskie
+pierogi z truskawkami,10,pierogi z truskawkami,pierogi z owocami 
+kotlet schabowy,10,kotlet schabowy,kotleta schabowego,schabowego,kotleta,kotlet
+kopytka,10,kopytka
+ziemniaki z wody,10,ziemniaki z wody,ziemniaki,ziemniakami
+filet z indyka,10,filet z indyka,indyk
+filet z kurczaka,10,filet z kurczaka,kurczak
+łosoś smażony,10,łosoś smażony,smażonego łososia,fososia zmażonego
+kaczka,10,kaczka,kaczkę,kaczki
+surówka z marchewki,10,surówka z marchewki,surówkę z marchewki,surówką z marchewki
+zupa pomidorowa,10,zupa pomidorowa,zupę pomidorową,zupy pomidorowe,pomidorowa
+rosół,10,rosół,rosoły
+żórek,10,żórki
+chłodnik,10,chłodnika
+woda gazowana,10,woda gazowana,wodę gazowaną,wodę,woda
+sok pomarańczowy,10,sok pomarańczowy,soczek pomarańczowy
+herbata zielona,10,herbata zielona,herbatę zieloną
+herbata owocowa,10,herbata owocowa,herbatę owocową
+piwo,10,piwo
+szarlotka,10,szarlotka,szarlotkę
+sernik,10,sernik,sernika
+lody,10,lody
+i,12,i
+oraz,12,oraz
+z,12,z

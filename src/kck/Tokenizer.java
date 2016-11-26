@@ -56,6 +56,14 @@ public class Tokenizer
         tokenInfos.add(new TokenInfo(Pattern.compile("^("+regex+")"), token, boss));
     }
 
+
+
+    //-----------------------------------
+    // ta funkcja ma pewien blad logiczny
+    //jesli w slowniku wystepuje "kotlet" przed "kotleta" i w zdaniu ktos uzywa "kotleta"
+    // to tokenizer dopasowuje "kotlet" i zostawia "a" po czym sie zapetla....
+
+    // ---------------------------
     public void tokenize(String str)
     {
         String string = str.trim();
@@ -67,8 +75,7 @@ public class Tokenizer
             for (TokenInfo info : tokenInfos)
             {
                 Matcher m = info.regex.matcher(string);
-                if (m.find())
-                {
+                if (m.find()) {
                     match = true;
                     String tok = m.group().trim();
                     string = m.replaceFirst("").trim();
