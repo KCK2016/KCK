@@ -62,26 +62,25 @@ public class Tokenizer
     // ta funkcja ma pewien blad logiczny
     //jesli w slowniku wystepuje "kotlet" przed "kotleta" i w zdaniu ktos uzywa "kotleta"
     // to tokenizer dopasowuje "kotlet" i zostawia "a" po czym sie zapetla....
-
+    // oraz co w sytuacji jesli nie ma jakiegos slowa w slowniku?
     // ---------------------------
     public void tokenize(String str)
     {
         String string = str.trim();
         tokens.clear();
-
         while (!string.equals(""))
         {
-            boolean match = false;
             for (TokenInfo info : tokenInfos)
             {
                 Matcher m = info.regex.matcher(string);
                 if (m.find()) {
-                    match = true;
                     String tok = m.group().trim();
                     string = m.replaceFirst("").trim();
                     tokens.add(new Token(info.token, tok, info.boss));
                     break;
                 }
+                System.out.println(string);
+
             }
         }
     }
