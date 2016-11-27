@@ -1,19 +1,10 @@
 package kck;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.*;
 
-/**
- *
- * @author Adrian
- */
+
 public class KCK {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws IOException {
 
         Tokenizer tokenizer = new Tokenizer();
