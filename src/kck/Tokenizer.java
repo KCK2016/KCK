@@ -61,15 +61,12 @@ public class Tokenizer
     {
         String string = str.trim();
         tokens.clear();
-
         while (!string.equals(""))
         {
-            boolean match = false;
             for (TokenInfo info : tokenInfos)
             {
                 Matcher m = info.regex.matcher(string);
                 if (m.find()) {
-                    match = true;
                     String tok = m.group().trim();
                     string = m.replaceFirst("").trim();
                     tokens.add(new Token(info.token, tok, info.boss));
