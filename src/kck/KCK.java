@@ -17,25 +17,17 @@ public class KCK {
     public static void main(String[] args) throws IOException {
 
         Tokenizer tokenizer = new Tokenizer();
-        addtoken(tokenizer);
+        MenuList menuList = new MenuList();
+        for (MenuList.Menu tok : menuList.getMenu()) {
+            System.out.println(tok.product);
+        }
+        for (Tokenizer.TokenInfo tok : tokenizer.getTokensInfo()) {
+            System.out.println(tok.regex + tok.boss);
+        }
         proba1(tokenizer);
 
     }
 
-    private static void addtoken(Tokenizer tokenizer) throws IOException {
-
-        File token_txt = new File("dictionary.txt");
-        List<String> token_txt_list = new LinkedList<>();
-        token_txt_list = Files.readAllLines(token_txt.toPath());
-        for(String line: token_txt_list) {
-            String[] line_split = line.trim().split(",");
-            for (int counter = 2; counter<line_split.length; counter++){
-                tokenizer.add(line_split[counter],Integer.parseInt(line_split[1]), line_split[0]);
-            }
-        }
-        tokenizer.add(",", 12, ",");
-
-    }
 
     private static void proba1(Tokenizer tokenizer) {
 
