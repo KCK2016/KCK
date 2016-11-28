@@ -1,15 +1,15 @@
-﻿Dzień dobry,0,Dzień dobry
-Witam,0,Witam
-Chcę,1,Chcę
-Chciałbym,1,Chciałbym
-Chciałabym,1,Chciałabym
-Proszę,1,Proszę
-Poproszę,1,Poproszę
-Poprosimy,1,Poprosimy
-Chcielibyśmy,2,Chcielibyśmy
-Chcemy,2,Chcemy
-Prosimy,2,Prosimy
-Poprosimy,2,Poprosimy
+﻿dzień dobry,0,dzień dobry
+witam,0,witam
+chcę,1,chcę
+chciałbym,1,chciałbym
+chciałabym,1,chciałabym
+proszę,1,proszę
+poproszę,1,poproszę
+poprosimy,1,poprosimy
+chcielibyśmy,2,chcielibyśmy
+chcemy,2,chcemy
+prosimy,2,prosimy
+poprosimy,2,poprosimy
 [.],4,[.]
 pierogi z mięsem,10,pierogi z mięsem
 pierogi po rusku,10,pierogi po rusku,pierogi ruskie,ruskie

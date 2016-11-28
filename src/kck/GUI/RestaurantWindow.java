@@ -17,6 +17,7 @@ import kck.GUI.enums.ButtonNames;
 import kck.GUI.enums.ControlButtonPosition;
 import kck.GUI.enums.PositionOnGrid;
 import kck.MenuList;
+import kck.KCK;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -83,7 +84,10 @@ public class RestaurantWindow extends Application {
     }
 
     private void setPrimaryStage() {
-        primaryStage.setScene(new Scene(mainBorderPane, 1200, 600));
+        Scene scene = new Scene(mainBorderPane, 1200, 600);
+        primaryStage.setScene(scene);
+        primaryStage.minWidthProperty().bind(scene.heightProperty().multiply(2));
+        primaryStage.minHeightProperty().bind(scene.widthProperty().divide(2));
         primaryStage.show();
     }
 
@@ -161,6 +165,13 @@ public class RestaurantWindow extends Application {
         gridPane.add(button, ControlButtonPosition.TEXTBUTTON.getPositionX(), ControlButtonPosition.TEXTBUTTON.getPositionY());
         button.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             inputText = textArea.getText();
+            KCK kck = new KCK(inputText);
+            String[] args={};
+            try {
+                kck.main(args);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             textArea.clear();
         });
 
