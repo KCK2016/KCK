@@ -1,0 +1,7 @@
+ Przystawki: przystawka 1,przystawka 2,przystawka 3
+Zupy: zupa 1,zupa 2,zupa 3,zupa 4
+Dania główne: danie glowne 1,danie glowne 2
+Desery: deser 1,deser 2,deser3
+Napoje zimne: napoj zmny 1,napoj zimny 2,
+Napoje ciepłe: napoj cieply 1,napoj cieply 2
+Alkohole: alkohol1,alkohol2
