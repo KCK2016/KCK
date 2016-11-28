@@ -18,10 +18,16 @@ public class MenuList {
             this.product = product;
             this.group = group;
         }
+
+        @Override
+        public String toString() {
+            return "product='" + product + '\'' +
+                    ", group='" + group + '\'' +
+                    '}';
+        }
     }
 
     private LinkedList < Menu > menu;
-
     public MenuList() throws IOException {
         menu = new LinkedList < Menu >();
         try {
@@ -82,6 +88,8 @@ public class MenuList {
                     add(alcoholArray[i].trim(), alcoholArray[0]);
             }
         }
+
+
 
     }
 }

@@ -16,6 +16,10 @@ import javafx.stage.Stage;
 import kck.GUI.enums.ButtonNames;
 import kck.GUI.enums.ControlButtonPosition;
 import kck.GUI.enums.PositionOnGrid;
+import kck.MenuList;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 public class RestaurantWindow extends Application {
     private static final int boardSize = 8;
@@ -23,6 +27,7 @@ public class RestaurantWindow extends Application {
     private Stage primaryStage;
     private Button waiter;
     private TextArea textArea;
+    private TextArea menuArea;
     private String inputText;
     private BorderPane mainBorderPane;
 
@@ -39,6 +44,7 @@ public class RestaurantWindow extends Application {
     private void setBoard() {
         setGridPane();
         createTextArea();
+        createMenuArea();
         makeMainGrid();
         addWaiterToBoard();
         createButtonsOnGrid();
@@ -51,6 +57,7 @@ public class RestaurantWindow extends Application {
         mainBorderPane = new BorderPane();
         mainBorderPane.setCenter(gridPane);
         mainBorderPane.setBottom(textArea);
+        mainBorderPane.setRight(menuArea);
     }
 
     private void setGridPane() {
@@ -76,7 +83,7 @@ public class RestaurantWindow extends Application {
     }
 
     private void setPrimaryStage() {
-        primaryStage.setScene(new Scene(mainBorderPane, 600, 600));
+        primaryStage.setScene(new Scene(mainBorderPane, 1200, 600));
         primaryStage.show();
     }
 
@@ -121,6 +128,28 @@ public class RestaurantWindow extends Application {
 
     private void createTextArea() {
         textArea = new TextArea("Type here");
+    }
+
+    private void createMenuArea()  {
+        menuArea = new TextArea();
+        MenuList menuList = getMenuList();
+        setMenuText(menuList);
+    }
+
+    private void setMenuText(MenuList menuList) {
+        StringBuilder text = new StringBuilder();
+        menuList.getMenu().forEach(menu -> text.append(menu.toString()).append("\n"));
+        menuArea.setText(text.toString());
+    }
+
+    private MenuList getMenuList() {
+        MenuList menuList = null;
+        try {
+            menuList = new MenuList();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return menuList;
     }
 
     public String getInputText() {
