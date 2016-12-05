@@ -4,15 +4,20 @@ package kck.GUI;/**
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import kck.GUI.controller.RestaurantWindowController;
 import kck.GUI.enums.ButtonNames;
 import kck.GUI.enums.ControlButtonPosition;
 import kck.GUI.enums.PositionOnGrid;
@@ -20,17 +25,18 @@ import kck.MenuList;
 import kck.KCK;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public class RestaurantWindow extends Application {
     private static final int boardSize = 8;
     private GridPane gridPane;
-    private Stage primaryStage;
     private Button waiter;
     private TextArea textArea;
     private TextArea menuArea;
     private String inputText;
     private BorderPane mainBorderPane;
+
+    private Stage primaryStage;
+    private SplitPane rootLayout;
 
     public static void main(String[] args) {
         launch(args);
@@ -39,7 +45,45 @@ public class RestaurantWindow extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        setBoard();
+        this.primaryStage.setTitle("Kelner");
+        initRootLayout();
+
+        //setBoard();
+    }
+
+    /**
+     * Initializes the root layout.
+     */
+    private void initRootLayout(){
+        try {
+            // Load root layout from fxml file.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(RestaurantWindow.class.getResource("view/MainFrame.fxml"));
+            try {
+                rootLayout = loader.load();
+
+                // Show the scene containing the root layout.
+                Scene scene = new Scene(rootLayout);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+
+                // nie wiem dalczego w fxml'u ustawienie minimalnego rozmiaru okna nie działa
+                // dlatego robię to tu, manualnie
+                primaryStage.setMinWidth(primaryStage.getWidth());
+                primaryStage.setMinHeight(primaryStage.getHeight());
+
+                // Give the controller access to the main app.
+                RestaurantWindowController controller = loader.getController();
+                controller.setMainApp(this);
+
+            } catch (IOException e) {
+                //throw new UserException(e.getMessage());
+            } catch (IllegalStateException e) {
+                //throw new UserException(e.getMessage());
+            }
+        } catch (Exception e) {
+
+        }
     }
 
     private void setBoard() {
