@@ -1,5 +1,5 @@
 ﻿Dzień dobry,0,Dzień dobry
-Witam,0,Witam
+witam,0,witam
 Chcę,1,Chcę
 Chciałbym,1,Chciałbym
 Chciałabym,1,Chciałabym
@@ -26,8 +26,8 @@ zupa pomidorowa,10,zupa pomidorowa,zupę pomidorową,zupy pomidorowe,pomidorowa
 rosół,10,rosół,rosoły
 żórek,10,żórki
 chłodnik,10,chłodnika
+woda niegazowana,10, wodę niegazowaną, woda niegazowana
 woda gazowana,10,woda gazowana,wodę gazowaną
-woda,10, wodę, woda
 sok pomarańczowy,10,sok pomarańczowy,soczek pomarańczowy
 herbata zielona,10,herbata zielona,herbatę zieloną
 herbata owocowa,10,herbata owocowa,herbatę owocową

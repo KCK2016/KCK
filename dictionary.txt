@@ -1,4 +1,4 @@
-﻿dzień dobry,0,dzień dobry
+dzień dobry,0,dzień dobry
 witam,0,witam
 chcę,1,chcę
 chciałbym,1,chciałbym
@@ -19,14 +19,15 @@ kopytka,10,kopytka
 ziemniaki z wody,10,ziemniaki z wody,ziemniaki,ziemniakami
 filet z indyka,10,filet z indyka,indyk
 filet z kurczaka,10,filet z kurczaka,kurczak
-łosoś smażony,10,łosoś smażony,smażonego łososia,fososia zmażonego
+łosoś smażony,10,łosoś smażony,smażonego łososia,łososia zmażonego
 kaczka,10,kaczka,kaczkę,kaczki
 surówka z marchewki,10,surówka z marchewki,surówkę z marchewki,surówką z marchewki
 zupa pomidorowa,10,zupa pomidorowa,zupę pomidorową,zupy pomidorowe,pomidorowa
 rosół,10,rosół,rosoły
 żórek,10,żórki
 chłodnik,10,chłodnika
-woda gazowana,10,woda gazowana,wodę gazowaną,wodę,woda
+woda niegazowana,10,wodę niegazowaną, woda niegazowana
+woda gazowana,10,woda gazowana,wodę gazowaną
 sok pomarańczowy,10,sok pomarańczowy,soczek pomarańczowy
 herbata zielona,10,herbata zielona,herbatę zieloną
 herbata owocowa,10,herbata owocowa,herbatę owocową

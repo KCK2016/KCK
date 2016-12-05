@@ -1,6 +1,7 @@
 package kck;
 
 import java.io.IOException;
+import java.util.Random;
 
 
 public class KCK {
@@ -12,14 +13,19 @@ public class KCK {
     public static void main(String[] args) throws IOException {
 
         Tokenizer tokenizer = new Tokenizer();
+
         MenuList menuList = new MenuList();
+
+
+
         for (MenuList.Menu tok : menuList.getMenu()) {
             System.out.println(tok.product);
         }
         for (Tokenizer.TokenInfo tok : tokenizer.getTokensInfo()) {
-            System.out.println(tok.regex + tok.boss);
+            System.out.println(tok.regex + tok.boss + tok.token);
         }
         proba1(tokenizer);
+
 
     }
 
@@ -27,16 +33,15 @@ public class KCK {
     private static void proba1(Tokenizer tokenizer) {
 
        // String s = "Dzień dobry. Poproszę kotleta z ziemniakami, wodę oraz surówkę z marchewki. ";
+        String s = "Witam. Poproszę kotleta z zieMniakami, wodę niegazowaną oraz surówkę z marchewki. ";
         s=s.toLowerCase();
         tokenizer.tokenize(s);
 
-        System.out.println(s);
-
         System.out.println("Klient zamówił: ");
         for (Tokenizer.Token tok : tokenizer.getTokens()) {
-            if (tok.token == 10) {
+          //  if (tok.token == 10) {
                 System.out.println(" - " + tok.boss);
-            }
+           // }
         }
     }
 

@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class MenuList {
+
 
     public class Menu
     {
@@ -27,7 +29,9 @@ public class MenuList {
         }
     }
 
-    private LinkedList < Menu > menu;
+
+    public LinkedList < Menu > menu;
+
     public MenuList() throws IOException {
         menu = new LinkedList < Menu >();
         try {
@@ -92,4 +96,5 @@ public class MenuList {
 
 
     }
+
 }
