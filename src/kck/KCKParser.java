@@ -23,11 +23,7 @@ public class KCKParser {
     }
 
     private void buildResponse(Tokenizer tokenizer, StringBuilder builder) {
-        for (Tokenizer.Token tok : tokenizer.getTokens()) {
-            if (tok.token == 10) {
-                builder.append(tok.boss).append(" ");
-            }
-        }
+        tokenizer.getTokens().stream().filter(token -> token.token == 10).forEach(token -> builder.append(token.boss).append(" "));
     }
 
     private Tokenizer getTokenizer() {
