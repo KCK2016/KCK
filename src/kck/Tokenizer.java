@@ -86,7 +86,7 @@ public class Tokenizer
         token_txt_list = Files.readAllLines(token_txt.toPath());
 
 
-        // sortowanie po dlufgosci pierwszego slowa z lini z pliku dictionary.txt
+        // sortowanie po dlufgosci pierwszego slowa z lini z pliku
 
         token_txt_list.sort(new Comparator<String>() {
             @Override
@@ -116,7 +116,7 @@ public class Tokenizer
 
 
             for (int counter = 2; counter<line_split.length; counter++){
-                add(line_split[counter],Integer.parseInt(line_split[1]), line_split[0]);
+                add(line_split[counter],Integer.parseInt(line_split[1]), line_split[0].toLowerCase());
             }
         }
         add(",", 12, ",");
