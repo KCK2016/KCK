@@ -4,6 +4,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import kck.GUI.RestaurantWindow;
@@ -31,32 +33,36 @@ public class RestaurantWindowController {
         this.mainApp = mainApp;
     }
 
+    //Enter
+    @FXML
+    public void TextAreaCommand_KeyPressed(KeyEvent keyEvent) {
+        if (keyEvent.getCode().equals(KeyCode.ENTER))  {
+            ButtonSubmit_Click(null);
+            keyEvent.consume();
+        }
+    }
+
     //Wyślij
+    @FXML
     public void ButtonSubmit_Click(MouseEvent event){
         String Command = TextAreaCommand.getText();
+        TextAreaCommand.clear();
+
         //TO DO
-        //Sprawdzanie czy nie ma enterów, spacji i innego syfu.
+        //Sprawdzanie czy nie ma enterów, spacji i innego syfu
+        //na początku i końcu stringa.
         if(!Command.isEmpty()){
-            Command.trim();
+            Command = Command.trim();
         }
         else return;
-        for (int i = 0; i < Command.length(); i++){
-            if (!Command.isEmpty()) {
-                if (Command.endsWith("\n")) {
-                    Command = Command.substring(0, Command.length() - 1);
-                }
-                else break;
-            }
-            else return;
-        }
-        Command += "\n";
         if (!Command.isEmpty()){
+            Command += "\n";
             TextAreaOutput.appendText(Command);
-            TextAreaCommand.clear();
         }
     }
 
     //Nowy klient
+    @FXML
     public void ButtonNewClient_Click(MouseEvent event){
         //TO DO
         //Zerowanie i czyszczenie stanu stolików,
@@ -66,6 +72,7 @@ public class RestaurantWindowController {
     }
 
     //Karta dań
+    @FXML
     public void ButtonDishes_Click(MouseEvent event){
         //TO DO
         //Wyświetlanie okna dialogowego z listą dań.
@@ -92,6 +99,7 @@ public class RestaurantWindowController {
     }
 
     //Wyjście
+    @FXML
     public void ButtonCloseApp_Click(MouseEvent event) {
         KAlert alert = new KAlert(
                 Alert.AlertType.CONFIRMATION,

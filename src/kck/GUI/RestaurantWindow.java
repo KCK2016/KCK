@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -63,7 +65,6 @@ public class RestaurantWindow extends Application {
                 // Show the scene containing the root layout.
                 Scene scene = new Scene(rootLayout);
                 primaryStage.setScene(scene);
-
                 primaryStage.show();
 
                 // nie wiem dalczego w fxml'u ustawienie minimalnego rozmiaru okna nie działa

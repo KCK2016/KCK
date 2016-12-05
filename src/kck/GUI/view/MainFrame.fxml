@@ -113,7 +113,7 @@
                   </AnchorPane>
                   <AnchorPane maxHeight="154.0" minHeight="69.0" prefHeight="69.0" prefWidth="600.0" SplitPane.resizableWithParent="false">
                      <children>
-                        <TextArea fx:id="TextAreaCommand" layoutY="36.0" promptText="Wpisz frazę..." styleClass="input" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0" />
+                        <TextArea fx:id="TextAreaCommand" layoutY="36.0" onKeyPressed="#TextAreaCommand_KeyPressed" promptText="Wpisz frazę..." styleClass="input" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0" />
                         <Button id="send" alignment="CENTER" layoutX="480.0" mnemonicParsing="false" onMouseClicked="#ButtonSubmit_Click" prefHeight="69.0" prefWidth="120.0" text="Wyślij" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font size="17.0" />
