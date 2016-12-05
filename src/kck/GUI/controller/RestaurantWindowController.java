@@ -21,7 +21,7 @@ public class RestaurantWindowController {
     // Reference to the main application.
     private RestaurantWindow mainApp;
     Action action;
-    private String parserText;
+
 
     @FXML
     TextArea textAreaCommand;
@@ -50,8 +50,6 @@ public class RestaurantWindowController {
         String command = textAreaCommand.getText();
         textAreaCommand.clear();
 
-        KCKParser kckParser = new KCKParser();
-        parserText = kckParser.getText(command);
         //TO DO
         //Sprawdzanie czy nie ma enterów, spacji i innego syfu
         //na początku i końcu stringa.
@@ -62,8 +60,14 @@ public class RestaurantWindowController {
         if (!command.isEmpty()){
             command += "\n";
             textAreaOutput.appendText(command);
-            textAreaOutput.appendText("Zamowiono " + parserText);
+            textAreaOutput.appendText("Zamowiono " + parseAndGetParsedText(command));
         }
+    }
+
+    private String parseAndGetParsedText(String command) {
+        KCKParser kckParser = new KCKParser();
+        String parserText = kckParser.getText(command);
+        return parserText;
     }
 
     //Nowy klient
