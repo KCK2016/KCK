@@ -32,17 +32,17 @@
                               <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
                            </rowConstraints>
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#ButtonNewClient_Click" text="Nowy klient" textAlignment="CENTER">
+                              <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#buttonNewClientClick" text="Nowy klient" textAlignment="CENTER">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#ButtonDishes_Click" text="Karta dań" textAlignment="CENTER" GridPane.columnIndex="1">
+                              <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#buttonDishesClick" text="Karta dań" textAlignment="CENTER" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#ButtonCloseApp_Click" text="Wyjście" textAlignment="CENTER" GridPane.columnIndex="2">
+                              <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#buttonCloseAppClick" text="Wyjście" textAlignment="CENTER" GridPane.columnIndex="2">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -113,8 +113,8 @@
                   </AnchorPane>
                   <AnchorPane maxHeight="154.0" minHeight="69.0" prefHeight="69.0" prefWidth="600.0" SplitPane.resizableWithParent="false">
                      <children>
-                        <TextArea fx:id="TextAreaCommand" layoutY="36.0" onKeyPressed="#TextAreaCommand_KeyPressed" promptText="Wpisz frazę..." styleClass="input" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0" />
-                        <Button id="send" alignment="CENTER" layoutX="480.0" mnemonicParsing="false" onMouseClicked="#ButtonSubmit_Click" prefHeight="69.0" prefWidth="120.0" text="Wyślij" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <TextArea fx:id="textAreaCommand" layoutY="36.0" onKeyPressed="#textAreaCommandKeyPressed" promptText="Wpisz frazę..." styleClass="input" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0" />
+                        <Button id="send" alignment="CENTER" layoutX="480.0" mnemonicParsing="false" onMouseClicked="#buttonSubmitClick" prefHeight="69.0" prefWidth="120.0" text="Wyślij" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -135,7 +135,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea fx:id="TextAreaOutput" editable="false" focusTraversable="false" styleClass="output" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+            <TextArea fx:id="textAreaOutput" editable="false" focusTraversable="false" styleClass="output" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
