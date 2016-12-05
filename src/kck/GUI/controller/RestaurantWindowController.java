@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import kck.GUI.RestaurantWindow;
 import kck.GUI.view.JavaFX.KAlert;
+import kck.KCKParser;
 
 import javax.xml.ws.Action;
 import java.io.IOException;
@@ -20,11 +21,12 @@ public class RestaurantWindowController {
     // Reference to the main application.
     private RestaurantWindow mainApp;
     Action action;
+    private String parserText;
 
     @FXML
-    TextArea TextAreaCommand;
+    TextArea textAreaCommand;
     @FXML
-    TextArea TextAreaOutput;
+    TextArea textAreaOutput;
 
     /**
      * Is called by the main application to give a reference back to itself.
@@ -35,45 +37,48 @@ public class RestaurantWindowController {
 
     //Enter
     @FXML
-    public void TextAreaCommand_KeyPressed(KeyEvent keyEvent) {
+    public void textAreaCommandKeyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode().equals(KeyCode.ENTER))  {
-            ButtonSubmit_Click(null);
+            buttonSubmitClick(null);
             keyEvent.consume();
         }
     }
 
     //Wyślij
     @FXML
-    public void ButtonSubmit_Click(MouseEvent event){
-        String Command = TextAreaCommand.getText();
-        TextAreaCommand.clear();
+    public void buttonSubmitClick(MouseEvent event){
+        String command = textAreaCommand.getText();
+        textAreaCommand.clear();
 
+        KCKParser kckParser = new KCKParser();
+        parserText = kckParser.getText(command);
         //TO DO
         //Sprawdzanie czy nie ma enterów, spacji i innego syfu
         //na początku i końcu stringa.
-        if(!Command.isEmpty()){
-            Command = Command.trim();
+        if(!command.isEmpty()){
+            command = command.trim();
         }
         else return;
-        if (!Command.isEmpty()){
-            Command += "\n";
-            TextAreaOutput.appendText(Command);
+        if (!command.isEmpty()){
+            command += "\n";
+            textAreaOutput.appendText(command);
+            textAreaOutput.appendText("Zamowiono " + parserText);
         }
     }
 
     //Nowy klient
     @FXML
-    public void ButtonNewClient_Click(MouseEvent event){
+    public void buttonNewClientClick(MouseEvent event){
         //TO DO
         //Zerowanie i czyszczenie stanu stolików,
         //stanu zamówienia i pól tekstowych.
-        TextAreaOutput.clear();
-        TextAreaCommand.clear();
+        textAreaOutput.clear();
+        textAreaCommand.clear();
     }
 
     //Karta dań
     @FXML
-    public void ButtonDishes_Click(MouseEvent event){
+    public void buttonDishesClick(MouseEvent event){
         //TO DO
         //Wyświetlanie okna dialogowego z listą dań.
         GridPane dialogLayout = new GridPane();
@@ -100,7 +105,7 @@ public class RestaurantWindowController {
 
     //Wyjście
     @FXML
-    public void ButtonCloseApp_Click(MouseEvent event) {
+    public void buttonCloseAppClick(MouseEvent event) {
         KAlert alert = new KAlert(
                 Alert.AlertType.CONFIRMATION,
                 "Wyjście",
