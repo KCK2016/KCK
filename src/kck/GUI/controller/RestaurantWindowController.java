@@ -66,7 +66,7 @@ public class RestaurantWindowController {
 
     private String parseAndGetParsedText(String command) {
         KCKParser kckParser = new KCKParser();
-        String parserText = kckParser.getText(command);
+        String parserText = kckParser.getTokenizedText(command);
         return parserText;
     }
 
