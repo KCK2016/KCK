@@ -8,27 +8,36 @@ import java.io.IOException;
 public class KCKParser {
 
     public String getText(String userText) {
-        Tokenizer tokenizer = null;
-        MenuList menuList = null;
-        try {
-            tokenizer = new Tokenizer();
-            menuList = new MenuList();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Tokenizer tokenizer = tokenize(userText);
+        StringBuilder builder = new StringBuilder();
+        buildResponse(tokenizer, builder);
+        return builder.toString();
 
+    }
 
+    private Tokenizer tokenize(String userText) {
+        Tokenizer tokenizer = getTokenizer();
         userText=userText.toLowerCase();
         tokenizer.tokenize(userText);
+        return tokenizer;
+    }
 
-        StringBuilder builder = new StringBuilder();
+    private void buildResponse(Tokenizer tokenizer, StringBuilder builder) {
         for (Tokenizer.Token tok : tokenizer.getTokens()) {
             if (tok.token == 10) {
                 builder.append(tok.boss).append(" ");
             }
         }
-        return builder.toString();
+    }
 
+    private Tokenizer getTokenizer() {
+        Tokenizer tokenizer = null;
+        try {
+            tokenizer = new Tokenizer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return tokenizer;
     }
 
 
