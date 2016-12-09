@@ -75,9 +75,10 @@ public class Tokenizer
                     tokens.add(new Token(info.token, tok, info.boss));
                     break;
                 }
+                }
             }
         }
-    }
+
 
     public void addtoken() throws IOException {
 
@@ -87,7 +88,7 @@ public class Tokenizer
 
 
         // sortowanie po dlufgosci pierwszego slowa z lini z pliku
-
+        /*
         token_txt_list.sort(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
@@ -98,7 +99,7 @@ public class Tokenizer
             }
         });
 
-
+        */
 
         for(String line: token_txt_list) {
             String[] line_split = line.trim().split(",");
