@@ -26,11 +26,12 @@ zupa pomidorowa,10,zupa pomidorowa,zupę pomidorową,zupy pomidorowe,pomidorowa
 rosół,10,rosół,rosoły
 żórek,10,żórki
 chłodnik,10,chłodnika
-woda niegazowana,10, wodę niegazowaną, woda niegazowana
+woda niegazowana,10,wodę niegazowaną
 woda gazowana,10,woda gazowana,wodę gazowaną
 sok pomarańczowy,10,sok pomarańczowy,soczek pomarańczowy
 herbata zielona,10,herbata zielona,herbatę zieloną
 herbata owocowa,10,herbata owocowa,herbatę owocową
+herbata czarna,10, herbata czarna
 piwo,10,piwo
 szarlotka,10,szarlotka,szarlotkę
 sernik,10,sernik,sernika

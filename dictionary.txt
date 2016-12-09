@@ -1,19 +1,7 @@
-dzień dobry,0,dzień dobry
-witam,0,witam
-chcę,1,chcę
-chciałbym,1,chciałbym
-chciałabym,1,chciałabym
-proszę,1,proszę
-poproszę,1,poproszę
-poprosimy,1,poprosimy
-chcielibyśmy,2,chcielibyśmy
-chcemy,2,chcemy
-prosimy,2,prosimy
-poprosimy,2,poprosimy
-[.],4,[.]
+mozzarella z pomidorami,10,mozzarella z pomidorami
 pierogi z mięsem,10,pierogi z mięsem
 pierogi po rusku,10,pierogi po rusku,pierogi ruskie,ruskie
-pierogi z truskawkami,10,pierogi z truskawkami,pierogi z owocami 
+pierogi z truskawkami,10,pierogi z truskawkami,pierogi z owocami
 kotlet schabowy,10,kotlet schabowy,kotleta schabowego,schabowego,kotleta,kotlet
 kopytka,10,kopytka
 ziemniaki z wody,10,ziemniaki z wody,ziemniaki,ziemniakami
@@ -24,17 +12,39 @@ kaczka,10,kaczka,kaczkę,kaczki
 surówka z marchewki,10,surówka z marchewki,surówkę z marchewki,surówką z marchewki
 zupa pomidorowa,10,zupa pomidorowa,zupę pomidorową,zupy pomidorowe,pomidorowa
 rosół,10,rosół,rosoły
-żórek,10,żórki
+żórek,10,żórek,żórki
 chłodnik,10,chłodnika
-woda niegazowana,10,wodę niegazowaną, woda niegazowana
 woda gazowana,10,woda gazowana,wodę gazowaną
+woda niegazowana,10,wodę niegazowaną,woda,wodę
 sok pomarańczowy,10,sok pomarańczowy,soczek pomarańczowy
 herbata zielona,10,herbata zielona,herbatę zieloną
 herbata owocowa,10,herbata owocowa,herbatę owocową
+herbata czarna,10,herbata czarna,herbatę czarną
 piwo,10,piwo
 szarlotka,10,szarlotka,szarlotkę
 sernik,10,sernik,sernika
 lody,10,lody
-i,12,i
-oraz,12,oraz
-z,12,z
+
+dzień dobry,0,dzień dobry
+witam,0,witam
+
+chcę,1,chcę
+chciałbym,1,chciałbym
+chciałabym,1,chciałabym
+proszę,1,proszę
+poproszę,1,poproszę
+poprosimy,1,poprosimy
+
+chcielibyśmy,2,chcielibyśmy
+chcemy,2,chcemy
+prosimy,2,prosimy
+poprosimy,2,poprosimy
+
+które,3,które,które jest,które są
+z,4,z,zawierają,posiadają
+bez,5,bez,nie ma,nie zawiera,nie posiada
+
+i,5,i
+oraz,5,oraz
+
+[.],11,[.]
