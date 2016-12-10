@@ -38,13 +38,15 @@ public class KCK {
         dishOfTheDay("Dania główne");
         System.out.println(" ");
 
-        // Danie, które zawiera
+        // Dania, które zawierają
+        String group = "Dania główne";
         String ingredient = "mięso";
-        containsProduct(ingredient);
+        containsProduct(group, ingredient);
         System.out.println(" ");
 
-        // Danie, które nie zawiera
-        notcontainsProduct(ingredient);
+        // Dania, które nie zawierają
+        group = "Zupy";
+        notcontainsProduct(group, ingredient);
         System.out.println(" ");
 
         // Czy danie zawiera?
@@ -80,33 +82,39 @@ public class KCK {
 
     }
 
-    private static void notcontainsProduct(String ingredient) throws IOException
+    private static void notcontainsProduct(String group, String ingredient) throws IOException
     {
         MenuList menuList = new MenuList();
 
-        System.out.println("Dania nie zawierające " + ingredient + ": ");
+        System.out.println(group + ",które nie zawierają " + ingredient + ": ");
         for (MenuList.Menu tok : menuList.getMenu())
         {
-            String s = Arrays.toString(tok.comment);
-            Boolean found = s.contains(ingredient);
-            if(found == false){
-                System.out.println("- " + tok.product);
+            if (tok.group.equals(group))
+            {
+                String s = Arrays.toString(tok.comment);
+                Boolean found = s.contains(ingredient);
+                if (found == false) {
+                    System.out.println("- " + tok.product);
+                }
             }
         }
 
     }
 
-    private static void containsProduct(String ingredient) throws IOException
+    private static void containsProduct(String group, String ingredient) throws IOException
     {
         MenuList menuList = new MenuList();
 
-        System.out.println("Dania zawierające " + ingredient + ": ");
+        System.out.println(group + ", które zawierają " + ingredient + ": ");
         for (MenuList.Menu tok : menuList.getMenu())
         {
-            String s = Arrays.toString(tok.comment);
-            Boolean found = s.contains(ingredient);
-            if(found){
-                System.out.println("- " + tok.product);
+            if (tok.group.equals(group))
+            {
+                String s = Arrays.toString(tok.comment);
+                Boolean found = s.contains(ingredient);
+                if (found) {
+                    System.out.println("- " + tok.product);
+                }
             }
         }
     }
