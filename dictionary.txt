@@ -30,7 +30,7 @@ lody waniliowe,10,lody waniliowe,loda waniliowego
 lody czekoladowe,10,lody czekoladowe,loda czekoladowego
 lody truskawkowe,10,lody truskawkowe,loda truskawkowego
 gofry z czekoladą,10,gofry z czekoladą
-gofry z truskawkami,10,gofry z czekoladą
+gofry z truskawkami,10,gofry z truskawkami
 
 woda gazowana,10,woda gazowana,wodę gazowaną
 woda niegazowana,10,woda niegazowana,wodę niegazowaną,woda,wodę
