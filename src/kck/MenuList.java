@@ -122,6 +122,20 @@ public class MenuList {
                     add(secondDishesArray[i + 1].trim(), secondDishesArray[0].trim(), secondDishesArray[i + 2].trim(), secondComm);
                 }
 
+                String[] secondDishesExtra1Array = bufferReader.readLine().split("[:,/]");
+                for (int i = 0; i < secondDishesExtra1Array.length - 3; i = i + 3)
+                {
+                    String secondExtra1Comm[] = secondDishesExtra1Array[i + 3].split("[.]");
+                    add(secondDishesExtra1Array[i + 1].trim(), secondDishesExtra1Array[0].trim(), secondDishesExtra1Array[i + 2].trim(), secondExtra1Comm);
+                }
+
+                String[] secondDishesExtra2Array = bufferReader.readLine().split("[:,/]");
+                for (int i = 0; i < secondDishesExtra2Array.length - 3; i = i + 3)
+                {
+                    String secondExtra2Comm[] = secondDishesExtra2Array[i + 3].split("[.]");
+                    add(secondDishesExtra2Array[i + 1].trim(), secondDishesExtra2Array[0].trim(), secondDishesExtra2Array[i + 2].trim(), secondExtra2Comm);
+                }
+
                 String[] dessertArray = bufferReader.readLine().split("[:,/]");
                 for (int i = 0; i < dessertArray.length - 3; i = i + 3)
                 {

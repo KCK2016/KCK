@@ -29,10 +29,6 @@ public class KCK {
         }
         System.out.println(" ");
 
-        // Proba
-        proba1(tokenizer);
-        System.out.println(" ");
-
         // Danie dnia
         dishOfTheDay("Zupy");
         dishOfTheDay("Dania główne");
@@ -55,6 +51,9 @@ public class KCK {
         doescontains(product,ingredient);
         System.out.println(" ");
 
+        // Proba
+        proba1(tokenizer);
+        System.out.println(" ");
 
     }
 

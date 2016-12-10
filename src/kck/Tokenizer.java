@@ -69,15 +69,17 @@ public class Tokenizer
             for (TokenInfo info : tokenInfos)
             {
                 Matcher m = info.regex.matcher(string);
-                if (m.find()) {
+                if (m.find())
+                {
                     String tok = m.group().trim();
                     string = m.replaceFirst("").trim();
                     tokens.add(new Token(info.token, tok, info.boss));
                     break;
                 }
-                }
+
             }
         }
+    }
 
 
     public void addtoken() throws IOException {

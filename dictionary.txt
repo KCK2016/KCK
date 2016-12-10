@@ -1,29 +1,49 @@
 mozzarella z pomidorami,10,mozzarella z pomidorami
-pierogi z mięsem,10,pierogi z mięsem
-pierogi po rusku,10,pierogi po rusku,pierogi ruskie,ruskie
-pierogi z truskawkami,10,pierogi z truskawkami,pierogi z owocami
-kotlet schabowy,10,kotlet schabowy,kotleta schabowego,schabowego,kotleta,kotlet
-kopytka,10,kopytka
-ziemniaki z wody,10,ziemniaki z wody,ziemniaki,ziemniakami
-filet z indyka,10,filet z indyka,indyk
-filet z kurczaka,10,filet z kurczaka,kurczak
-łosoś smażony,10,łosoś smażony,smażonego łososia,łososia zmażonego
-kaczka,10,kaczka,kaczkę,kaczki
-surówka z marchewki,10,surówka z marchewki,surówkę z marchewki,surówką z marchewki
+grzanki czosnkowe,10,grzanki czosnkowe,grzankami czosnkowymi
+grzanki z pomidorami,10,grzanki z pomidorami,grzankami z pomidorami
+
 zupa pomidorowa,10,zupa pomidorowa,zupę pomidorową,zupy pomidorowe,pomidorowa
 rosół,10,rosół,rosoły
 żórek,10,żórek,żórki
 chłodnik,10,chłodnika
-woda gazowana,10,woda gazowana,wodę gazowaną
-woda niegazowana,10,wodę niegazowaną,woda,wodę
-sok pomarańczowy,10,sok pomarańczowy,soczek pomarańczowy
-herbata zielona,10,herbata zielona,herbatę zieloną
-herbata owocowa,10,herbata owocowa,herbatę owocową
-herbata czarna,10,herbata czarna,herbatę czarną
-piwo,10,piwo
+
+kotlet schabowy,10,kotlet schabowy,kotleta schabowego,schabowego,kotleta,kotlet
+kopytka w sosie,10,kopytka w sosie
+filet z kurczaka,10,filet z kurczaka,kurczak
+filet z indyka,10,filet z indyka,indyk
+kaczka,10,kaczka,kaczkę,kaczki
+łosoś smażony,10,łosoś smażony,smażonego łososia,łososia zmażonego
+pierogi z mięsem,10,pierogi z mięsem
+pierogi po rusku,10,pierogi po rusku,pierogi ruskie,ruskie
+pierogi z truskawkami,10,pierogi z truskawkami,pierogi z owocami
+
+ziemniaki,10,ziemniaki z wody,ziemniaki,ziemniakami
+ryż,10,ryż,ryżem
+frytki,10,frytki,frtykami
+
+surówka z marchewki,10,surówka z marchewki,surówkę z marchewki,surówką z marchewki
+sałata,10,sałata,sałatę,sałatą
+
 szarlotka,10,szarlotka,szarlotkę
 sernik,10,sernik,sernika
-lody,10,lody
+lody waniliowe,10,lody waniliowe,loda waniliowego
+lody czekoladowe,10,lody czekoladowe,loda czekoladowego
+lody truskawkowe,10,lody truskawkowe,loda truskawkowego
+gofry z czekoladą,10,gofry z czekoladą
+gofry z truskawkami,10,gofry z czekoladą
+
+woda gazowana,10,woda gazowana,wodę gazowaną
+woda niegazowana,10,woda niegazowana,wodę niegazowaną,woda,wodę
+sok pomarańczowy,10,sok pomarańczowy,soczek pomarańczowy
+
+herbata czarna,10,herbata czarna,herbatę czarną
+herbata zielona,10,herbata zielona,herbatę zieloną
+herbata owocowa,10,herbata owocowa,herbatę owocową
+
+piwo,10,piwo
+wino czerwone wytrawne,10,wino czerwone wytrawne
+wino białe wytrawne,10,wino białe wytrawne
+wino biale słodkie,10,wino biale słodkie
 
 dzień dobry,0,dzień dobry
 witam,0,witam
