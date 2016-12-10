@@ -15,9 +15,9 @@ public class MenuList {
         public String product;
         public String group;
         public String price;
-        public String comment;
+        public String[] comment;
 
-        public Menu(String product, String group, String price, String comment)
+        public Menu(String product, String group, String price, String[] comment)
         {
             super();
             this.product = product;
@@ -57,11 +57,11 @@ public class MenuList {
             this.price = price;
         }
 
-        public String getComment() {
+        public String[] getComment() {
             return comment;
         }
 
-        public void setComment(String comment) {
+        public void setComment(String[] comment) {
             this.comment = comment;
         }
     }
@@ -78,7 +78,7 @@ public class MenuList {
         }
     }
 
-    public void add(String product, String group, String price, String comment)
+    public void add(String product, String group, String price, String[] comment)
     {
         menu.add(new Menu(product, group, price, comment));
     }
@@ -102,32 +102,53 @@ public class MenuList {
             {
                 String[] snapArray = bufferReader.readLine().split("[:,/]");
                 for (int i = 0; i < snapArray.length - 3; i = i + 3)
-                    add(snapArray[i+1].trim(), snapArray[0].trim(), snapArray[i+2].trim(), snapArray[i+3].trim());
+                {
+                    String snapComm[] = snapArray[i + 3].split("[.]");
+                    //add(snapArray[i + 1].trim(), snapArray[0].trim(), snapArray[i + 2].trim(), snapArray[i + 3].trim());
+                    add(snapArray[i + 1].trim(), snapArray[0].trim(), snapArray[i + 2].trim(), snapComm);
+                }
 
                 String[] soupsArray = bufferReader.readLine().split("[:,/]");
                 for (int i = 0; i < soupsArray.length - 3; i = i + 3)
-                    add(soupsArray[i+1].trim(), soupsArray[0].trim(), soupsArray[i+2].trim(), soupsArray[i+3].trim());
+                {
+                    String soupsComm[] = soupsArray[i + 3].split("[.]");
+                    add(soupsArray[i + 1].trim(), soupsArray[0].trim(), soupsArray[i + 2].trim(), soupsComm);
+                }
 
                 String[] secondDishesArray = bufferReader.readLine().split("[:,/]");
                 for (int i = 0; i < secondDishesArray.length - 3; i = i + 3)
-                    add(secondDishesArray[i+1].trim(), secondDishesArray[0].trim(), secondDishesArray[i+2].trim(), secondDishesArray[i+3].trim());
+                {
+                    String secondComm[] = secondDishesArray[i + 3].split("[.]");
+                    add(secondDishesArray[i + 1].trim(), secondDishesArray[0].trim(), secondDishesArray[i + 2].trim(), secondComm);
+                }
 
                 String[] dessertArray = bufferReader.readLine().split("[:,/]");
                 for (int i = 0; i < dessertArray.length - 3; i = i + 3)
-                    add(dessertArray[i+1].trim(), dessertArray[0].trim(), dessertArray[i+2].trim(), dessertArray[i+3].trim());
+                {
+                    String dessertComm[] = dessertArray[i + 3].split("[.]");
+                    add(dessertArray[i + 1].trim(), dessertArray[0].trim(), dessertArray[i + 2].trim(), dessertComm);
+                }
 
                 String[] coldDrinksArray = bufferReader.readLine().split("[:,/]");
                 for (int i = 0; i < coldDrinksArray.length - 3; i = i + 3)
-                    add(coldDrinksArray[i+1].trim(), coldDrinksArray[0].trim(), coldDrinksArray[i+2].trim(), coldDrinksArray[i+3].trim());
+                {
+                    String coldComm[] = coldDrinksArray[i + 3].split("[.]");
+                    add(coldDrinksArray[i + 1].trim(), coldDrinksArray[0].trim(), coldDrinksArray[i + 2].trim(), coldComm);
+                }
 
                 String[] hotDrinksArray = bufferReader.readLine().split("[:,/]");
                 for (int i = 0; i < hotDrinksArray.length - 3; i = i + 3)
-                    add(hotDrinksArray[i+1].trim(), hotDrinksArray[0].trim(), hotDrinksArray[i+2].trim(), hotDrinksArray[i+3].trim());
+                {
+                    String hotComm[] = hotDrinksArray[i + 3].split("[.]");
+                    add(hotDrinksArray[i + 1].trim(), hotDrinksArray[0].trim(), hotDrinksArray[i + 2].trim(), hotComm);
+                }
 
                 String[] alcoholArray = bufferReader.readLine().split("[:,/]");
                 for (int i = 0; i < alcoholArray.length - 3; i = i + 3)
-                    add(alcoholArray[i+1].trim(), alcoholArray[0].trim(), alcoholArray[i+2].trim(), alcoholArray[i+3].trim());
-
+                {
+                    String alcoholComm[] = alcoholArray[i + 3].split("[.]");
+                    add(alcoholArray[i + 1].trim(), alcoholArray[0].trim(), alcoholArray[i + 2].trim(), alcoholComm);
+                }
             }
 
         }
