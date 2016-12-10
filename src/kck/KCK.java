@@ -39,26 +39,56 @@ public class KCK {
         System.out.println(" ");
 
         // Danie, które zawiera
-        String produkt = "mięso";
-        containsProduct(produkt);
+        String ingredient = "mięso";
+        containsProduct(ingredient);
         System.out.println(" ");
 
         // Danie, które nie zawiera
-        notcontainsProdukt(produkt);
+        notcontainsProduct(ingredient);
+        System.out.println(" ");
+
+        // Czy danie zawiera?
+        String product = "szarlotka";
+        ingredient = "jabłka";
+        doescontains(product,ingredient);
         System.out.println(" ");
 
 
     }
 
-    private static void notcontainsProdukt(String produkt) throws IOException
+    private static void doescontains(String product, String ingredient) throws IOException
+    {
+        MenuList menuList = new MenuList();
+        for (MenuList.Menu tok : menuList.getMenu())
+        {
+            if (tok.product.equals(product))
+            {
+                String s = Arrays.toString(tok.comment);
+                Boolean found = s.contains(ingredient);
+                if(found)
+                {
+                    System.out.println(product + " zawiera składnik " + ingredient);
+                }
+                else
+                {
+                    System.out.println(product + " nie zawiera składnika " + ingredient);
+                }
+
+            }
+        }
+
+
+    }
+
+    private static void notcontainsProduct(String ingredient) throws IOException
     {
         MenuList menuList = new MenuList();
 
-        System.out.println("Dania nie zawierające " + produkt + ": ");
+        System.out.println("Dania nie zawierające " + ingredient + ": ");
         for (MenuList.Menu tok : menuList.getMenu())
         {
             String s = Arrays.toString(tok.comment);
-            Boolean found = s.contains(produkt);
+            Boolean found = s.contains(ingredient);
             if(found == false){
                 System.out.println("- " + tok.product);
             }
@@ -66,15 +96,15 @@ public class KCK {
 
     }
 
-    private static void containsProduct(String produkt) throws IOException
+    private static void containsProduct(String ingredient) throws IOException
     {
         MenuList menuList = new MenuList();
 
-        System.out.println("Dania zawierające " + produkt + ": ");
+        System.out.println("Dania zawierające " + ingredient + ": ");
         for (MenuList.Menu tok : menuList.getMenu())
         {
             String s = Arrays.toString(tok.comment);
-            Boolean found = s.contains(produkt);
+            Boolean found = s.contains(ingredient);
             if(found){
                 System.out.println("- " + tok.product);
             }
