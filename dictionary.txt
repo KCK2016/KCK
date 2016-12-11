@@ -1,4 +1,4 @@
-mozzarella z pomidorami,10,mozzarella z pomidorami
+mozzarella z pomidorami,10,mozzarella z pomidorami,mozzarellę z pomidorami
 grzanki czosnkowe,10,grzanki czosnkowe,grzankami czosnkowymi
 grzanki z pomidorami,10,grzanki z pomidorami,grzankami z pomidorami
 
@@ -33,7 +33,7 @@ gofry z czekoladą,10,gofry z czekoladą
 gofry z truskawkami,10,gofry z truskawkami
 
 woda gazowana,10,woda gazowana,wodę gazowaną
-woda niegazowana,10,woda niegazowana,wodę niegazowaną,woda,wodę
+woda niegazowana,10,woda niegazowana,wodę niegazowaną
 sok pomarańczowy,10,sok pomarańczowy,soczek pomarańczowy
 
 herbata czarna,10,herbata czarna,herbatę czarną

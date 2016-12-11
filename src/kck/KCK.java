@@ -7,10 +7,12 @@ import java.util.Random;
 
 
 public class KCK {
-   static String s;
-    public KCK(String s){
+    static String s;
+
+    public KCK(String s) {
         this.s = s;
     }
+
     public static void main(String[] args) throws IOException {
 
         Tokenizer tokenizer = new Tokenizer();
@@ -18,7 +20,7 @@ public class KCK {
 
         // Karta dań
         for (MenuList.Menu tok : menuList.getMenu()) {
-            System.out.println(tok.group +  ": " + tok.product + " " + tok.price+ " zł." + " " + Arrays.toString(tok.comment));
+            System.out.println(tok.group + ": " + tok.product + " " + tok.price + " zł." + " " + Arrays.toString(tok.comment));
         }
         System.out.println(" ");
 
@@ -48,7 +50,7 @@ public class KCK {
         // Czy danie zawiera?
         String product = "szarlotka";
         ingredient = "jabłka";
-        doescontains(product,ingredient);
+        doescontains(product, ingredient);
         System.out.println(" ");
 
         // Proba
@@ -57,21 +59,15 @@ public class KCK {
 
     }
 
-    private static void doescontains(String product, String ingredient) throws IOException
-    {
+    private static void doescontains(String product, String ingredient) throws IOException {
         MenuList menuList = new MenuList();
-        for (MenuList.Menu tok : menuList.getMenu())
-        {
-            if (tok.product.equals(product))
-            {
+        for (MenuList.Menu tok : menuList.getMenu()) {
+            if (tok.product.equals(product)) {
                 String s = Arrays.toString(tok.comment);
                 Boolean found = s.contains(ingredient);
-                if(found)
-                {
+                if (found) {
                     System.out.println(product + " zawiera składnik " + ingredient);
-                }
-                else
-                {
+                } else {
                     System.out.println(product + " nie zawiera składnika " + ingredient);
                 }
 
@@ -92,7 +88,8 @@ public class KCK {
             {
                 String s = Arrays.toString(tok.comment);
                 Boolean found = s.contains(ingredient);
-                if (found == false) {
+                if (found == false)
+                {
                     System.out.println("- " + tok.product);
                 }
             }
@@ -111,7 +108,8 @@ public class KCK {
             {
                 String s = Arrays.toString(tok.comment);
                 Boolean found = s.contains(ingredient);
-                if (found) {
+                if (found)
+                {
                     System.out.println("- " + tok.product);
                 }
             }
@@ -123,23 +121,22 @@ public class KCK {
 
         MenuList menuList = new MenuList();
 
-        LinkedList <String> listOf;
-        listOf = new LinkedList < String >() ;
+        LinkedList<String> listOf;
+        listOf = new LinkedList<String>();
 
         //System.out.println(group);
         for (MenuList.Menu tok : menuList.getMenu())
         {
-            if (tok.group.equals(group)== true)
+            if (tok.group.equals(group) == true)
             {
                 int i = 0;
                 listOf.add(i, tok.getProduct());
                 i = i + 1;
             }
-
         }
 
 
-        Random random= new Random();
+        Random random = new Random();
         int index = random.nextInt(listOf.size());
         String item = listOf.get(index);
         System.out.println("Danie dnia to: " + item);
@@ -147,20 +144,21 @@ public class KCK {
     }
 
 
-    private static void proba1(Tokenizer tokenizer)
+    private static void proba1(Tokenizer tokenizer) throws IOException
     {
-        String s = "Dzień dobry. Poproszę mozzarella z pomidorami i schabowego z ziemniakami i wodę. ";
-        s=s.toLowerCase();
+        String s = "Dzień dobry. Poproszę pierogi";
+        System.out.println("Klient: " + s);
+
+        s = s.toLowerCase();
         tokenizer.tokenize(s);
+        tokenizer.checkproduct();
 
         System.out.println("Klient zamówił: ");
-        for (Tokenizer.Token tok : tokenizer.getTokens())
-        {
-          if (tok.token == 10)
-          {
+        for (Tokenizer.Token tok : tokenizer.getTokens()) {
+            if (tok.token == 10) {
                 System.out.println(" - " + tok.boss);
-          }
+            }
         }
-    }
 
+    }
 }

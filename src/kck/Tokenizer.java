@@ -48,10 +48,82 @@ public class Tokenizer
     private LinkedList < TokenInfo > tokenInfos;
     private LinkedList < Token > tokens;
 
-    public Tokenizer() throws IOException {
+    public Tokenizer() throws IOException
+    {
         tokenInfos = new LinkedList < TokenInfo >();
         tokens = new LinkedList < Token >();
         addtoken();
+    }
+
+    public void checkproduct() throws IOException
+    {
+        MenuList menuList = new MenuList();
+        Vector tabelapodobnych = new Vector();
+        int i = 0;
+        Boolean found = false;
+
+        System.out.print("Kelner: ");
+        for (Token info : getTokens())
+        {
+            if(info.token == 99)
+            {
+                //System.out.println(info.sequence);
+                for (TokenInfo infos : tokenInfos)
+                {
+                    found = infos.regex.toString().contains(info.sequence);
+                    if (found)
+                    {
+                        tabelapodobnych.add(infos.boss);
+                        //System.out.print(infos.boss + ", ");
+                    }
+                }
+            }
+        }
+
+        removeDuplicatesProducts(tabelapodobnych);
+
+        for(int c = 0; c < tabelapodobnych.size() ; c++)
+        {
+            System.out.print(tabelapodobnych.elementAt(c) + ", ");
+        }
+        System.out.print("?");
+
+        System.out.println();
+
+        System.out.println("// Wpisać tylko produkt.");
+
+
+            System.out.print("Klient: ");
+            Scanner in = new Scanner(System.in);
+            String s = in.nextLine();
+
+            for (TokenInfo infos : tokenInfos)
+            {
+                Boolean found1 = infos.regex.toString().contains(s);
+                if (found1)
+                {
+                    //System.out.println(infos.regex.toString());
+                    tokens.add(new Token(infos.token, s, infos.boss));
+                }
+            }
+    }
+
+
+    private void removeDuplicatesProducts(Vector tabelapodobnych)
+    {
+            for(int i = 0; i < tabelapodobnych.size(); i++)
+            {
+                for(int j = 0; j < tabelapodobnych.size(); j++)
+                {
+                    if(i != j)
+                    {
+                        if ( tabelapodobnych.elementAt(i).equals(tabelapodobnych.elementAt(j)) )
+                        {
+                            tabelapodobnych.removeElementAt(j);
+                        }
+                    }
+                }
+            }
     }
 
     public void add(String regex, int token, String boss)
@@ -76,13 +148,13 @@ public class Tokenizer
                     tokens.add(new Token(info.token, tok, info.boss));
                     break;
                 }
-
             }
         }
     }
 
 
-    public void addtoken() throws IOException {
+    public void addtoken() throws IOException
+    {
 
         File token_txt = new File("dictionary.txt");
         List<String> token_txt_list = new LinkedList<>();
@@ -123,8 +195,7 @@ public class Tokenizer
             }
         }
         add(",", 12, ",");
-        add("[a-zA-Z][a-zA-Z0-9_]*", 99,"[a-zA-Z][a-zA-Z0-9_]*");
-
+        add("[a-źA-Ź][a-źA-Ź0-9_]*", 99,"[a-źA-Z][a-źA-Ź0-9_]*");
     }
 
 
