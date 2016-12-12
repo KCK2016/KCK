@@ -11,7 +11,7 @@ public class KCKParser {
         Tokenizer tokenizer = tokenize(userText);
         StringBuilder builder = new StringBuilder();
         buildText(tokenizer, builder);
-        return builder.toString();
+        return builder.toString().trim();
     }
 
     private Tokenizer tokenize(String userText) {
