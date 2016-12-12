@@ -146,7 +146,7 @@ public class KCK {
 
     private static void proba1(Tokenizer tokenizer) throws IOException
     {
-        String s = "Dzień dobry. Poproszę pierogi";
+        String s = "Dzień dobry. Poproszę ziemniaki";
         System.out.println("Klient: " + s);
 
         s = s.toLowerCase();
