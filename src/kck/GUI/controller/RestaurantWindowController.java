@@ -15,8 +15,11 @@ import kck.KCKParser;
 import javax.xml.ws.Action;
 import java.io.IOException;
 import java.util.Optional;
+import java.util.function.UnaryOperator;
 
 public class RestaurantWindowController {
+
+    private static final int TEXT_FIELD_MAX_LENGTH = 200;
 
     // Reference to the main application.
     private RestaurantWindow mainApp;
@@ -33,6 +36,19 @@ public class RestaurantWindowController {
      */
     public void setMainApp(RestaurantWindow mainApp) {
         this.mainApp = mainApp;
+        setCharacterLimit(textAreaCommand, TEXT_FIELD_MAX_LENGTH);
+    }
+
+    private void setCharacterLimit(TextArea txtArea, int limit){
+        // adds character limit filter to textAreaCommand
+        final UnaryOperator<TextFormatter.Change> filter
+                = (TextFormatter.Change change) -> {
+            if (change.getControlNewText().length() > limit) {
+                return null;
+            }
+            return change;
+        };
+        txtArea.setTextFormatter(new TextFormatter(filter));
     }
 
     //Enter
@@ -40,6 +56,10 @@ public class RestaurantWindowController {
     public void textAreaCommandKeyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode().equals(KeyCode.ENTER))  {
             buttonSubmitClick(null);
+            keyEvent.consume();
+        }
+        else if (keyEvent.getCode().equals(KeyCode.ESCAPE))  {
+            buttonCloseAppClick(null);
             keyEvent.consume();
         }
     }
@@ -51,7 +71,7 @@ public class RestaurantWindowController {
         textAreaCommand.clear();
 
         //TO DO
-        //Sprawdzanie czy nie ma enterów, spacji i innego syfu
+        //Sprawdzanie czy nie ma enterów, spacji
         //na początku i końcu stringa.
         if(!command.isEmpty()){
             command = command.trim();
@@ -60,7 +80,16 @@ public class RestaurantWindowController {
         if (!command.isEmpty()){
             command += "\n";
             textAreaOutput.appendText(command);
-            textAreaOutput.appendText("Zamowiono " + parseAndGetParsedText(command));
+            textAreaOutput.appendText(getCommandResult(command));
+        }
+    }
+
+    private String getCommandResult(String command){
+        String result = parseAndGetParsedText(command);
+        if (result.isEmpty()){
+            return "Niestety nie zrozumiałem. Czy możesz sparafrazować?\n";
+        } else {
+            return "Zamówiono " + result + ".\n";
         }
     }
 
