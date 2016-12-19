@@ -19,6 +19,8 @@ import java.util.function.UnaryOperator;
 
 public class RestaurantWindowController {
 
+    private static final String soups = "Zupy";
+    private static final String mainDish = "Dania główne";
     private static final int TEXT_FIELD_MAX_LENGTH = 200;
 
     // Reference to the main application.
@@ -37,6 +39,7 @@ public class RestaurantWindowController {
     public void setMainApp(RestaurantWindow mainApp) {
         this.mainApp = mainApp;
         setCharacterLimit(textAreaCommand, TEXT_FIELD_MAX_LENGTH);
+        setDishOfTheDay();
     }
 
     private void setCharacterLimit(TextArea txtArea, int limit){
@@ -64,6 +67,10 @@ public class RestaurantWindowController {
         }
     }
 
+    public void setDishOfTheDay() {
+        textAreaOutput.appendText("zupa dnia: " + getDishOfTheDay(soups) + "\n");
+        textAreaOutput.appendText("danie dnia: " + getDishOfTheDay(mainDish) + "\n");
+    }
     //Wyślij
     @FXML
     public void buttonSubmitClick(MouseEvent event){
@@ -97,6 +104,14 @@ public class RestaurantWindowController {
         KCKParser kckParser = new KCKParser();
         String parserText = kckParser.getTokenizedText(command);
         return parserText;
+    }
+    private String getDishOfTheDay(String group) {
+        KCKParser kckParser = new KCKParser();
+        try {
+            return  kckParser.getDishOfTheDay(group);
+        } catch (IOException e) {
+            return "error";
+        }
     }
 
     //Nowy klient
