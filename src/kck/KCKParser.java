@@ -18,7 +18,7 @@ public class KCKParser {
 
     private Tokenizer tokenize(String userText) {
         Tokenizer tokenizer = getTokenizer();
-        userText=userText.toLowerCase();
+        userText = userText.toLowerCase();
         tokenizer.tokenize(userText);
         return tokenizer;
     }
@@ -38,24 +38,23 @@ public class KCKParser {
     }
 
     public String getDishOfTheDay(String group) throws IOException {
-        MenuList menuList = new MenuList();
-        LinkedList<String> listOf;
-        listOf = new LinkedList<String>();
-
-        for (MenuList.Menu tok : menuList.getMenu())
-        {
-            if (tok.group.equals(group) == true)
-            {
-                int i = 0;
-                listOf.add(i, tok.getProduct());
-                i = i + 1;
-            }
-        }
-
+        LinkedList<String> listOf = getProductsListFromGroup(group);
         Random random = new Random();
         int index = random.nextInt(listOf.size());
-        String item = listOf.get(index);
-       return item;
+        return listOf.get(index);
     }
+
+    private LinkedList<String> getProductsListFromGroup(String group) throws IOException {
+        MenuList menuList = new MenuList();
+        LinkedList<String> listOf = new LinkedList<>();
+        filterProductsAndAddToList(group, menuList, listOf);
+        return listOf;
+    }
+
+    private void filterProductsAndAddToList(String group, MenuList menuList, LinkedList<String> listOf) {
+        final int[] i = {0};
+        menuList.getMenu().stream().filter(tok -> tok.group.equals(group)).forEach(tok -> listOf.add(i[0]++, tok.getProduct()));
+    }
+
 
 }
