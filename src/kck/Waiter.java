@@ -41,6 +41,8 @@ String response(List<Tokenizer.Token> tokens) throws IOException {
             i +=2;
             kck.containsProduct(tokens.get(i).sequence);
         }
+
+        // dodać kolejne
     }
 
     return respon;
