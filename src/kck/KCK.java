@@ -116,6 +116,22 @@ public class KCK {
         }
     }
 
+    public void containsProduct(String ingredient) throws IOException
+    {
+        MenuList menuList = new MenuList();
+
+        System.out.println("Dania, które zawierają " + ingredient + ": ");
+        for (MenuList.Menu tok : menuList.getMenu())
+        {
+                String s = Arrays.toString(tok.comment);
+                Boolean found = s.contains(ingredient);
+                if (found)
+                {
+                    System.out.println("- " + tok.product);
+                }
+        }
+    }
+
     private static void dishOfTheDay(String group) throws IOException
     {
 
@@ -146,19 +162,23 @@ public class KCK {
 
     private static void proba1(Tokenizer tokenizer) throws IOException
     {
-        String s = "Dzień dobry. Poproszę pierogi";
+        String s = "Które dania zawierają mięso";
         System.out.println("Klient: " + s);
 
         s = s.toLowerCase();
         tokenizer.tokenize(s);
-        tokenizer.checkproduct();
+      //  tokenizer.checkproduct();
 
+       Waiter waiter = new Waiter();
+        System.out.println(waiter.talk(tokenizer));
+        /*
         System.out.println("Klient zamówił: ");
         for (Tokenizer.Token tok : tokenizer.getTokens()) {
             if (tok.token == 10) {
                 System.out.println(" - " + tok.boss);
             }
         }
+        */
 
     }
 }

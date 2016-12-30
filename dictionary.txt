@@ -60,11 +60,14 @@ chcemy,2,chcemy
 prosimy,2,prosimy
 poprosimy,2,poprosimy
 
+które danie,3,które dania,które danie,które dania są,które danie jest
 które,3,które,które jest,które są
 z,4,z,zawierają,posiadają
 bez,5,bez,nie ma,nie zawiera,nie posiada
 
 i,5,i
 oraz,5,oraz
+
+zamówić,6,zamówić
 
 [.],11,[.]
