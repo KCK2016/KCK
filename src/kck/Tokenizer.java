@@ -108,6 +108,60 @@ public class Tokenizer
             }
     }
 
+    public Boolean checkproduct(Token info) throws IOException
+    {
+        MenuList menuList = new MenuList();
+        Vector tabelapodobnych = new Vector();
+        int i = 0;
+        Boolean found = false;
+
+        System.out.print("Kelner: ");
+
+            if(info.token == 99)
+            {
+                //System.out.println(info.sequence);
+                for (TokenInfo infos : tokenInfos)
+                {
+                    found = infos.regex.toString().contains(info.sequence);
+                    if (found)
+                    {
+                        tabelapodobnych.add(infos.boss);
+                        //System.out.print(infos.boss + ", ");
+                    }
+                }
+            }
+
+
+        removeDuplicatesProducts(tabelapodobnych);
+
+        if(tabelapodobnych.size()>0) {
+            String choices = "";
+            for (int c = 0; c < tabelapodobnych.size(); c++) {
+                choices += tabelapodobnych.elementAt(c) + ", ";
+            }
+            choices = choices.substring(0, choices.length()-2 ) +"?";
+
+            System.out.println(choices);
+
+            System.out.println("// Wpisać tylko produkt.");
+
+        System.out.print("Klient: ");
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+
+        for (TokenInfo infos : tokenInfos)
+        {
+            Boolean found1 = infos.regex.toString().contains(s);
+            if (found1)
+            {
+                //System.out.println(infos.regex.toString());
+                tokens.add(new Token(infos.token, s, infos.boss));
+            }
+            return true;
+        }}
+        System.out.println("Nie mamy takiego dania w karcie. Proszę wybrać coś z menu.");
+        return false;
+    }
 
     private void removeDuplicatesProducts(Vector tabelapodobnych)
     {
@@ -135,6 +189,10 @@ public class Tokenizer
     public void tokenize(String str)
     {
         String string = str.trim();
+        String lastchar = string.substring(string.length()-1, string.length());
+        if(lastchar.equals(".")| lastchar.equals("?")|lastchar.equals("!")) {
+            string = string.substring(0, string.length()-1);
+        }
         tokens.clear();
         while (!string.equals(""))
         {
