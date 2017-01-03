@@ -1,5 +1,7 @@
 package kck;
 
+import kck.order.OrderHandler;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,22 +15,21 @@ public class Waiter {
 
 
 
-String talk(Tokenizer tokenizer) throws IOException {
+String talk(Tokenizer tokenizer, OrderHandler orderHandler, MenuList menuList) throws IOException {
     String response = "";
     List<Tokenizer.Token> list = new ArrayList<Tokenizer.Token>();
     for(Tokenizer.Token tok: tokenizer.getTokens()){
         list.add(tok);
         System.out.println(tok.token);
     }
-
     if(list.size()>0) {
-        response = "Kelner: "+response(list);
+        response = "Kelner: "+response(list,  orderHandler,  menuList);
     }
-
     return response;
 }
 
-String response(List<Tokenizer.Token> tokens) throws IOException {
+
+String response(List<Tokenizer.Token> tokens, OrderHandler orderHandler, MenuList menuList) throws IOException {
     String respon = "";
     for (int i=0; i<tokens.size(); i++) {
         if (tokens.get(i).token == 0) {
@@ -39,7 +40,7 @@ String response(List<Tokenizer.Token> tokens) throws IOException {
 
             respon = "Zamówiono " + tokens.get(i).boss + ". Czy podać coś jeszcze?";
 
-            // handle order
+            orderHandler.addToOrder(menuList.findProduct(tokens.get(i).boss));
 
         }
         else if (tokens.get(i).token == 1 || tokens.get(i).token == 2) {
@@ -49,7 +50,7 @@ String response(List<Tokenizer.Token> tokens) throws IOException {
 
                 respon = "Zamówiono " + tokens.get(i).boss + ". Czy podać coś jeszcze?";
 
-                // handle order
+                orderHandler.addToOrder(menuList.findProduct(tokens.get(i).boss));
 
             }
             else if(i < tokens.size() & tokens.get(i).token == 99) {
@@ -60,7 +61,8 @@ String response(List<Tokenizer.Token> tokens) throws IOException {
                 ordered = tokenizer.checkproduct(tokens.get(i));
                 if(ordered) {
 
-                    //handle order
+                    // co tutaj /???
+
                     respon = "Czy podać coś jeszcze?";
                 }
             }
@@ -76,6 +78,11 @@ String response(List<Tokenizer.Token> tokens) throws IOException {
 
                 // order handler
                 respon = "Czy podać coś jeszcze?";
+            }
+            else if(i<tokens.size() & tokens.get(i).token == 8){
+                //poproszono o rachunek
+
+                respon = orderHandler.buildReceipt();
             }
             else respon = "Proszę wybrać produkt z menu.";
         }

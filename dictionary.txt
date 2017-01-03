@@ -75,4 +75,6 @@ Dania główne,7,dania główne,danie dnia,dnia
 Zupy,7,zupę dnia,zupy,zupę
 Desery,7,desery,deser dnia,deser
 
+rachunek,8,rachunek
+
 [.],11,[.]
