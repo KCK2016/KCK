@@ -1,5 +1,7 @@
 package kck;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,7 +12,18 @@ import java.util.regex.Matcher;
 import java.text.Collator;
 import java.util.*;
 
+final class Result{
+    private String product;
+    private Boolean found;
 
+    public Result(String product, Boolean found){
+        this.product = product;
+        this.found = found;
+    }
+
+    public String getProduct() { return product;}
+    public Boolean getFound() { return found;}
+}
 public class Tokenizer
 {
     public class TokenInfo
@@ -108,7 +121,7 @@ public class Tokenizer
             }
     }
 
-    public Boolean checkproduct(Token info) throws IOException
+    public Result checkproduct(Token info) throws IOException
     {
         MenuList menuList = new MenuList();
         Vector tabelapodobnych = new Vector();
@@ -156,11 +169,11 @@ public class Tokenizer
             {
                 //System.out.println(infos.regex.toString());
                 tokens.add(new Token(infos.token, s, infos.boss));
+                return new Result(s, true);
             }
-            return true;
         }}
         System.out.println("Nie mamy takiego dania w karcie. Proszę wybrać coś z menu.");
-        return false;
+        return new Result(info.sequence, false);
     }
 
     private void removeDuplicatesProducts(Vector tabelapodobnych)
@@ -254,6 +267,7 @@ public class Tokenizer
         }
         add(",", 12, ",");
         add("[a-źA-Ź][a-źA-Ź0-9_]*", 99,"[a-źA-Z][a-źA-Ź0-9_]*");
+
     }
 
 
