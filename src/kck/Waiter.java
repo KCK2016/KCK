@@ -99,8 +99,14 @@ private void response(List<Tokenizer.Token> tokens, OrderHandler orderHandler, M
         else if (tokens.get(i).token == 3 && tokens.get(i+1).token == 4) {
             //czy z mięsem itp.
 
-            i++;
+            i +=2;
             kck.containsProduct(tokens.get(i).sequence);
+            System.out.println("Kelner: Co podać?");
+        }
+        else if (tokens.get(i).token == 3 && tokens.get(i+1).token == 15) {
+            //czy z mięsem itp.
+            i++;
+            kck.containsProduct(tokens.get(i).boss);
             System.out.println("Kelner: Co podać?");
         }
         else if (tokens.get(i).token == 3 && tokens.get(i+1).token == 7) {

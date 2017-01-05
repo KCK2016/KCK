@@ -60,10 +60,12 @@ chcemy,2,chcemy
 prosimy,2,prosimy o,prosimy
 poprosimy,2,poprosimy o,poprosimy
 
-które danie,3,które danie jest z,które danie jest,które dania są,które danie,które dania
-które,3,które jest z,które jest,które są, które
-jakie,3,jakie jest, jakie są, jakie
-zawierają,4,posiadają
+które danie,3,które danie jest z,które danie jest,które dania są z,które dania są,które dania,które danie
+które,3,które są,które
+jakie,3,jakie jest, jakie są dania,jakie są, jakie
+co,3,co
+
+zawierają,4,zawierają,posiadają
 
 i,5,i
 oraz,5,oraz
@@ -81,3 +83,11 @@ rachunek,8,rachunek
 tak,13,tak
 
 nie,14,nie,bez
+
+mięso,15,mięso,mięsem
+cebula,15,cebula,cebulą
+czosnek,15,czosnkiem,czosnek
+owoce,15,owocami,owoce
+
+
+pan,15,pani,pan
