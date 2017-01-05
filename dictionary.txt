@@ -89,5 +89,6 @@ cebula,15,cebula,cebulą
 czosnek,15,czosnkiem,czosnek
 owoce,15,owocami,owoce
 
+pan,16,pani,pan
 
-pan,15,pani,pan
+polecić,17,polecić,poleca,poleci
