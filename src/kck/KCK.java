@@ -200,12 +200,15 @@ public class KCK {
 //        tokenizer.checkproduct();
 
         Waiter waiter = new Waiter();
+        OrderHandler orderHandler = new OrderHandler();
+        MenuList menuList = new MenuList();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Kelner: Dzień dobry. Czy moge przyjąć zamówinie?");
         while(!s.equals("Do widzenia")|!s.equals("do widzenia")) {
             s = scanner.nextLine();
             tokenizer.tokenize(s.toLowerCase());
-            System.out.println(waiter.talk(tokenizer));
+            System.out.println(waiter.talk(tokenizer, orderHandler, menuList));
         }
 
         /*

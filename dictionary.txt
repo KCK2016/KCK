@@ -51,20 +51,21 @@ witam,0,witam
 chcę,1,chcę
 chciałbym,1,chciałbym
 chciałabym,1,chciałabym
-proszę,1,proszę
-poproszę,1,poproszę
-poprosimy,1,poprosimy
+proszę,1,proszę o,proszę
+poproszę,1,poproszę o,poproszę
+poprosimy,1,poprosimy o,poprosimy
 
 chcielibyśmy,2,chcielibyśmy
 chcemy,2,chcemy
-prosimy,2,prosimy
-poprosimy,2,poprosimy
+prosimy,2,prosimy o,prosimy
+poprosimy,2,poprosimy o,poprosimy
 
-które danie,3,które danie jest z,które danie jest,które dania są,które danie,które dania
-które,3,które jest z,które jest,które są, które
-jakie,3,jakie jest, jakie są, jakie
-zawierają,4,posiadają
-bez,5,nie zawiera,nie posiada,nie ma,bez
+które danie,3,które danie jest z,które danie jest,które dania są z,które dania są,które dania,które danie
+które,3,które są,które
+jakie,3,jakie jest, jakie są dania,jakie są, jakie
+co,3,co
+
+zawierają,4,zawierają,posiadają
 
 i,5,i
 oraz,5,oraz
@@ -75,4 +76,19 @@ Dania główne,7,dania główne,danie dnia,dnia
 Zupy,7,zupę dnia,zupy,zupę
 Desery,7,desery,deser dnia,deser
 
+rachunek,8,rachunek
+
 [.],11,[.]
+
+tak,13,tak
+
+nie,14,nie,bez
+
+mięso,15,mięso,mięsem
+cebula,15,cebula,cebulą
+czosnek,15,czosnkiem,czosnek
+owoce,15,owocami,owoce
+
+pan,16,pani,pan
+
+polecić,17,polecić,poleca,poleci

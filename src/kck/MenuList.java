@@ -88,6 +88,14 @@ public class MenuList {
         return menu;
     }
 
+    public Menu findProduct(String name) {
+
+        for(Menu menu: getMenu()){
+            if(menu.getProduct().equalsIgnoreCase(name)) return menu;
+        }
+        return null;
+    }
+
 
 
     public void MenuDownload() throws IOException

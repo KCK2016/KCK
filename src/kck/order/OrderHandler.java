@@ -1,5 +1,7 @@
 package kck.order;
 
+import kck.MenuList;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,6 +19,10 @@ public class OrderHandler {
 
     public void addToOrder(MenuItem menuItem) {
         orderList.add(menuItem);
+    }
+
+    public void addToOrder(MenuList.Menu menu) {MenuItem menuItem = new MenuItem(menu.getProduct(), Double.parseDouble(menu.getPrice()));
+    orderList.add(menuItem);
     }
 
     public void deleteFromOrder(MenuItem menuItem) {
