@@ -21,6 +21,5 @@
       <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
   </rowConstraints>
    <children>
-      <Label text="Placki albo wpierdol." />
    </children>
 </GridPane>
