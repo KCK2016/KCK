@@ -144,6 +144,14 @@ public class RestaurantWindowController {
             // TO DO
             //throw new UserException(e.getMessage());
         }
+        Label menu = new Label();
+
+        try {
+            menu.setText(getMenu());
+            dialogLayout.getChildren().add(menu);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Label l = new Label();
 
