@@ -20,17 +20,18 @@ public class KCK {
         this.seed = System.currentTimeMillis();
     }
 
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args) throws IOException
+    {
 
         Tokenizer tokenizer = new Tokenizer();
         MenuList menuList = new MenuList();
-
+/*
         // Karta dań
         for (MenuList.Menu tok : menuList.getMenu()) {
             System.out.println(tok.group + ": " + tok.product + " " + tok.price + " zł." + " " + Arrays.toString(tok.comment));
         }
         System.out.println(" ");
-
 
         // Tokeny, reakcje
         for (Tokenizer.TokenInfo tok : tokenizer.getTokensInfo()) {
@@ -63,128 +64,30 @@ public class KCK {
         // Proba
         proba1(tokenizer);
         System.out.println(" ");
-
-    }
-
-    private static void doescontains(String product, String ingredient) throws IOException {
-        MenuList menuList = new MenuList();
-        for (MenuList.Menu tok : menuList.getMenu()) {
-            if (tok.product.equals(product)) {
-                String s = Arrays.toString(tok.comment);
-                Boolean found = s.contains(ingredient);
-                if (found) {
-                    System.out.println(product + " zawiera składnik " + ingredient);
-                } else {
-                    System.out.println(product + " nie zawiera składnika " + ingredient);
-                }
-
-            }
-        }
+*/
+        mojafunkcja(tokenizer);
 
 
     }
 
-    private static void notcontainsProduct(String group, String ingredient) throws IOException
+    private static void mojafunkcja(Tokenizer tokenizer) throws IOException
     {
+        String s = "";
+        OrderHandler orderHandler = new OrderHandler();
         MenuList menuList = new MenuList();
-
-        System.out.println(group + ",które nie zawierają " + ingredient + ": ");
-        for (MenuList.Menu tok : menuList.getMenu())
+        Scanner scanner = new Scanner(System.in);
+        while(!s.equals("Do widzenia")|!s.equals("do widzenia"))
         {
-            if (tok.group.equals(group))
+            s = scanner.nextLine();
+            try {
+                tokenizer.tokenize(s.toLowerCase());
+            }
+            catch (Exception e)
             {
-                String s = Arrays.toString(tok.comment);
-                Boolean found = s.contains(ingredient);
-                if (found == false)
-                {
-                    System.out.println("- " + tok.product);
-                }
+                System.out.println("Nie rozumiem.");
             }
+            System.out.println(Parser.talk(tokenizer, orderHandler, menuList));
         }
-
-    }
-
-    private static void containsProduct(String group, String ingredient) throws IOException
-    {
-        MenuList menuList = new MenuList();
-
-        System.out.println(group + ", które zawierają " + ingredient + ": ");
-        for (MenuList.Menu tok : menuList.getMenu())
-        {
-            if (tok.group.equals(group))
-            {
-                String s = Arrays.toString(tok.comment);
-                Boolean found = s.contains(ingredient);
-                if (found)
-                {
-                    System.out.println("- " + tok.product);
-                }
-            }
-        }
-    }
-
-    public void containsProduct(String ingredient) throws IOException
-    {
-        MenuList menuList = new MenuList();
-
-        System.out.println("Dania, które zawierają " + ingredient + ": ");
-        for (MenuList.Menu tok : menuList.getMenu())
-        {
-                String s = Arrays.toString(tok.comment);
-                Boolean found = s.contains(ingredient);
-                if (found)
-                {
-                    System.out.println("- " + tok.product);
-                }
-        }
-    }
-
-    public static void dishOfTheDay(String group) throws IOException
-    {
-        MenuList menuList = new MenuList();
-
-        LinkedList<String> listOf;
-        listOf = new LinkedList<String>();
-
-        //System.out.println(group);
-        for (MenuList.Menu tok : menuList.getMenu())
-        {
-            if (tok.group.equals(group) == true)
-            {
-                int i = 0;
-                listOf.add(i, tok.getProduct());
-                i = i + 1;
-                // po co ta iteracja?
-            }
-        }
-        Random random = new Random(seed);
-        int index = random.nextInt(listOf.size());
-        String item = listOf.get(index);
-        System.out.println(group+" to: " + item);
-    }
-
-    public static String returndishOfTheDay(String group) throws IOException
-    {
-        MenuList menuList = new MenuList();
-
-        LinkedList<String> listOf;
-        listOf = new LinkedList<String>();
-
-        //System.out.println(group);
-        for (MenuList.Menu tok : menuList.getMenu())
-        {
-            if (tok.group.equals(group) == true)
-            {
-                int i = 0;
-                listOf.add(i, tok.getProduct());
-                i = i + 1;
-                // po co ta iteracja?
-            }
-        }
-        Random random = new Random(seed);
-        int index = random.nextInt(listOf.size());
-        String item = listOf.get(index);
-       return  item;
     }
 
 
@@ -221,4 +124,9 @@ public class KCK {
         */
 
     }
+
+
+
+
+
 }

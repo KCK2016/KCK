@@ -58,7 +58,7 @@ public class Tokenizer
 
     }
 
-    private LinkedList < TokenInfo > tokenInfos;
+    public LinkedList < TokenInfo > tokenInfos;
     private LinkedList < Token > tokens;
 
     public Tokenizer() throws IOException
@@ -203,23 +203,32 @@ public class Tokenizer
     {
         String string = str.trim();
         String lastchar = string.substring(string.length()-1, string.length());
-        if(lastchar.equals(".")| lastchar.equals("?")|lastchar.equals("!")) {
+        if(lastchar.equals(".")| lastchar.equals("?")|lastchar.equals("!"))
+        {
             string = string.substring(0, string.length()-1);
         }
         tokens.clear();
         while (!string.equals(""))
         {
+            boolean match = false;
             for (TokenInfo info : tokenInfos)
             {
                 Matcher m = info.regex.matcher(string);
                 if (m.find())
                 {
+                    match = true;
                     String tok = m.group().trim();
                     string = m.replaceFirst("").trim();
                     tokens.add(new Token(info.token, tok, info.boss));
                     break;
                 }
             }
+            if (!match)
+            {
+                    System.out.println("Unexpected character in input: " + string);
+                    break;
+            }
+
         }
     }
 

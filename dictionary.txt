@@ -3,13 +3,13 @@ grzanki czosnkowe,10,grzankami czosnkowymi,grzanki czosnkowe
 grzanki z pomidorami,10,grzankami z pomidorami,grzanki z pomidorami
 
 zupa pomidorowa,10,zupa pomidorowa,zupę pomidorową,zupy pomidorowe,pomidorowa
-rosół,10,rosół,rosoły
-żórek,10,żórek,żórki
-chłodnik,10,chłodnika
+rosół,10,rosół,rosoły,zupę rosół
+żórek,10,żórek,żórki,zupę żórek
+chłodnik,10,chłodnika,zupę chłodnik
 
 kotlet schabowy,10,kotleta schabowego,kotlet schabowy,schabowego,kotleta,kotlet
 kopytka w sosie,10,kopytka w sosie
-filet z kurczaka,10,filet z kurczaka,kurczak
+filet z kurczaka,10,filet z kurczaka,kurczak,kurczaka
 filet z indyka,10,filet z indyka,indyk
 kaczka,10,kaczka,kaczkę,kaczki
 łosoś smażony,10,smażonego łososia,łososia zmażonego,łosoś smażony
@@ -45,6 +45,15 @@ wino czerwone wytrawne,10,wino czerwone wytrawne
 wino białe wytrawne,10,wino białe wytrawne
 wino biale słodkie,10,wino biale słodkie
 
+zupa dnia,18,zupa dnia,zupę dnia
+danie główne dnia,19,danie główne dnia
+
+dania główne,7,dania główne,danie główne
+zupy,7,zupa,zupę,zupy
+desery,7,desery,deser,deser
+
+danie dnia,9,danie dnia
+
 dzień dobry,0,dzień dobry
 witam,0,witam
 
@@ -60,21 +69,20 @@ chcemy,2,chcemy
 prosimy,2,prosimy o,prosimy
 poprosimy,2,poprosimy o,poprosimy
 
-które danie,3,które danie jest z,które danie jest,które dania są z,które dania są,które dania,które danie
-które,3,które są,które
-jakie,3,jakie jest, jakie są dania,jakie są, jakie
+zamówić,6,zamówić,zamawiam
+
+które,3,które dania,które danie,jakie danie,jakie dania,jakie,która,który
+które,3,które są,które,jakie,jakie,jakie,jakie,która,który,jaka
 co,3,co
 
-zawierają,4,zawierają,posiadają
 
-i,5,i
-oraz,5,oraz
+zawierają,4,zawiera,zawierają,posiadają,jest z,jest,są z,są,jest
+zawierają,4,danie zawiera,dania zawierają,dania posiadają,danie jest z,danie jest,dania są,dania są z,dania z
 
-zamówić,6,zamówić
+czy,5,czy
 
-Dania główne,7,dania główne,danie dnia,dnia
-Zupy,7,zupę dnia,zupy,zupę
-Desery,7,desery,deser dnia,deser
+i,13,i
+oraz,13,oraz
 
 rachunek,8,rachunek
 
@@ -84,7 +92,7 @@ tak,13,tak
 
 nie,14,nie,bez
 
-mięso,15,mięso,mięsem
+mięso,15,mięso,mięsem,mięsa
 cebula,15,cebula,cebulą
 czosnek,15,czosnkiem,czosnek
 owoce,15,owocami,owoce

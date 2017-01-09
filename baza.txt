@@ -1,9 +1,9 @@
- Przystawki: mozzarella z pomidorami/7.0/ser,grzanki czosnkowe/5.0/czosnek,grzanki z pomidorami/7.0/pomidory
-Zupy: zupa pomidorowa/5.0/pomidor,rosół/7.0/mięso.kurczak,żórek/7.0/mięso.kiełbasa,chłodnik/5.0/brak_kom
-Dania główne: kotlet schabowy/5.0/mięso.schab,kopytka w sosie/5.0/mięso,filet z kurczaka/4.5/mięso.kurczak.drób,filet z indyka/5.0/mięso.indyk.drób,kaczka/6.0/mięso.kaczka.drób,łosoś smażony/4.0/mięso.łosoś.ryba,pierogi z mięsem/7.0/mięso.wieprzownina,pierogi po rusku/6.0/ser.ser biały,pierogi z truskawkami/6.0/truskawki
-Dodatki_1: ziemniaki/3.0/skrobia,ryż/3.5/skrobia,frytki/4.0/keczup
-Dodatki_2: surówka z marchewki/3.0/marchewka,sałata/2.5/sałata lodowa.śmietana
-Desery: szarlotka/5.0/jabłka,sernik/4.0/ser.ser bialy,lody waniliowe/4.90/wanilia.3 gałki.bita śmietana,lody czekoladowe/5.0/czekolada.3 gałki.bita śmietana,lody truskawkowe/4.9/truskawki.3 gałki.bita śmietana,gofry z czekoladą/6.5/czekolada,gofry z truskawkami/6.5/truskawki
-Napoje zimne: woda niegazowana/2.0/brak_kom,woda gazowana/2.5/brak_kom,sok pomarańczowy/3.0/pomarańcze
-Napoje ciepłe: herbata czarna/4.0/brak_kom,herbata zielona/4.0/brak_kom,herbata owocowa/4.0/owoce
-Alkohole: piwo/5.0/4%,wino czerwone wytrawne/7.0/14%.schab,wino białe wytrawne/6.5/11%.drób,wino biale słodkie/6.0/12%.desery
+ przystawki: mozzarella z pomidorami/7.0/ser,grzanki czosnkowe/5.0/czosnek,grzanki z pomidorami/7.0/pomidory
+zupy: zupa pomidorowa/5.0/pomidor,rosół/7.0/mięso.kurczak,żórek/7.0/mięso.kiełbasa,chłodnik/5.0/brak_kom
+dania główne: kotlet schabowy/5.0/mięso.schab,kopytka w sosie/5.0/mięso,filet z kurczaka/4.5/mięso.kurczak.drób,filet z indyka/5.0/mięso.indyk.drób,kaczka/6.0/mięso.kaczka.drób,łosoś smażony/4.0/mięso.łosoś.ryba,pierogi z mięsem/7.0/mięso.wieprzowina,pierogi po rusku/6.0/ser.ser biały,pierogi z truskawkami/6.0/truskawki
+dodatki_1: ziemniaki/3.0/skrobia,ryż/3.5/skrobia,frytki/4.0/keczup
+dodatki_2: surówka z marchewki/3.0/marchewka,sałata/2.5/sałata lodowa.śmietana
+desery: szarlotka/5.0/jabłka,sernik/4.0/ser.ser bialy,lody waniliowe/4.90/wanilia.3 gałki.bita śmietana,lody czekoladowe/5.0/czekolada.3 gałki.bita śmietana,lody truskawkowe/4.9/truskawki.3 gałki.bita śmietana,gofry z czekoladą/6.5/czekolada,gofry z truskawkami/6.5/truskawki
+napoje zimne: woda niegazowana/2.0/brak_kom,woda gazowana/2.5/brak_kom,sok pomarańczowy/3.0/pomarańcze
+napoje ciepłe: herbata czarna/4.0/brak_kom,herbata zielona/4.0/brak_kom,herbata owocowa/4.0/owoce
+alkohole: piwo/5.0/4%,wino czerwone wytrawne/7.0/14%.schab,wino białe wytrawne/6.5/11%.drób,wino biale słodkie/6.0/12%.desery
