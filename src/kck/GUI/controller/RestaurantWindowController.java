@@ -14,8 +14,12 @@ import kck.KCKParser;
 
 import javax.xml.ws.Action;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RestaurantWindowController {
 
@@ -141,6 +145,15 @@ public class RestaurantWindowController {
             //throw new UserException(e.getMessage());
         }
 
+        Label l = new Label();
+
+        try {
+            l.setText(getMenu());
+            dialogLayout.getChildren().add(l);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         KAlert alert = new KAlert(
                 Alert.AlertType.NONE,
                 "Karta dań",
@@ -149,6 +162,18 @@ public class RestaurantWindowController {
         );
         alert.showAndWait();
 
+    }
+
+    String getMenu() throws IOException {
+        String content = new String(Files.readAllBytes(Paths.get("baza.txt")));
+        String menu="";
+        Pattern p = Pattern.compile("(?<=[\\n,:])(.*?)(?=[:/])");
+        Matcher m = p.matcher(content);
+        while(m.find()) {
+            menu+=m.group()+'\n';
+        }
+        System.out.println(menu);
+        return menu;
     }
 
     //Wyjście
