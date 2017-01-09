@@ -180,7 +180,6 @@ public class RestaurantWindowController {
         while(m.find()) {
             menu+=m.group()+'\n';
         }
-        System.out.println(menu);
         return menu;
     }
 
