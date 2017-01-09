@@ -25,18 +25,18 @@ String talk(Tokenizer tokenizer, OrderHandler orderHandler, MenuList menuList) t
         }
     }
     if(list.size()>0) {
-        response(list,  orderHandler,  menuList);
+        //response(list,  orderHandler,  menuList);
     }
     return response;
 }
 
-
 /*
+
 ######################
 trochę dużawy ten if ... :(
 a będzie tylko większy
 #######################
- */
+
 private void response(List<Tokenizer.Token> tokens, OrderHandler orderHandler, MenuList menuList) throws IOException {
     Boolean answer = false;
     for (int i=0; i<tokens.size(); i++) {
@@ -47,7 +47,7 @@ private void response(List<Tokenizer.Token> tokens, OrderHandler orderHandler, M
         else if(tokens.get(i).token == 7){
             // zamówiono danie dnia
             String word = tokens.get(i).boss.substring(0,1).toUpperCase() + tokens.get(i).boss.substring(1);
-            String product = kck.returndishOfTheDay(word);
+            String product = ksc.returndishOfTheDay(word);
             orderHandler.addToOrder(menuList.findProduct(product));
             System.out.println("Kelner: Czy podać coś jeszcze?");
             answer = true;
@@ -141,5 +141,5 @@ private void response(List<Tokenizer.Token> tokens, OrderHandler orderHandler, M
     }
 }
 
-
+*/
 }
