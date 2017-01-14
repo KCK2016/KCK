@@ -45,12 +45,13 @@ public class DictionaryInput {
             // blad formatu ??
 
             String[] int_representative = a.trim().split(">");
-            int someInt =  Integer.valueOf(int_representative[0]);
-            System.out.print(someInt);
-            System.out.println("");
-
-
+          //  int someInt =  Integer.valueOf(int_representative[0]);
+           // System.out.print(someInt);
+          //  System.out.println("");
             String[] tab = int_representative[1].split(";");
+
+
+
             for (int i=0; i < tab.length; i++) map.put(tab[i], counter);
             counter ++;
         }
