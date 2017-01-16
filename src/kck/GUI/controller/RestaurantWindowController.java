@@ -147,17 +147,8 @@ public class RestaurantWindowController {
         Label menu = new Label();
 
         try {
-            menu.setText(getMenu());
+            menu.setText(getMenu()[0]);
             dialogLayout.getChildren().add(menu);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Label l = new Label();
-
-        try {
-            l.setText(getMenu());
-            dialogLayout.getChildren().add(l);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -172,14 +163,20 @@ public class RestaurantWindowController {
 
     }
 
-    String getMenu() throws IOException {
-        String content = new String(Files.readAllBytes(Paths.get("baza.txt")));
-        String menu="";
+    String[] getMenu() throws IOException {
+        String file = new String(Files.readAllBytes(Paths.get("baza.txt")));
+        String[] content=file.split("[\n]");
+        String[] menu=new String[content.length];
+
         Pattern p = Pattern.compile("(?<=[\\n,:])(.*?)(?=[:/])");
-        Matcher m = p.matcher(content);
-        while(m.find()) {
-            menu+=m.group()+'\n';
+        for(int i=0;i<content.length;i++){
+            menu[i]="";
+            Matcher m = p.matcher(content[i]);
+            while(m.find()) {
+                menu[i]+=m.group()+"\n";
+            }
         }
+
         return menu;
     }
 
