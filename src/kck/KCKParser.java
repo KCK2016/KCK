@@ -13,6 +13,10 @@ public class KCKParser {
 
     private static OrderHandler orderHandler = new OrderHandler();
 
+    public static void makeNewClient() {
+        orderHandler = new OrderHandler();
+    }
+
     public static String getTokenizedText(String userText) throws IOException {
         Tokenizer tokenizer = tokenize(userText);
         MenuList menuList = new MenuList();

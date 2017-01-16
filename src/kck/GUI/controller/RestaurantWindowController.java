@@ -126,6 +126,7 @@ public class RestaurantWindowController {
         //stanu zamówienia i pól tekstowych.
         textAreaOutput.clear();
         textAreaCommand.clear();
+        KCKParser.makeNewClient();
     }
 
     //Karta dań
