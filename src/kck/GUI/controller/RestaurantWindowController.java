@@ -90,13 +90,13 @@ public class RestaurantWindowController {
         else return;
         if (!command.isEmpty()){
             command += "\n";
-            textAreaOutput.appendText(command);
+            textAreaOutput.appendText("Klient: " + command);
             textAreaOutput.appendText(getCommandResult(command));
         }
     }
 
     private String getCommandResult(String command){
-        return parseAndGetParsedText(command);
+        return "Kelner: " + parseAndGetParsedText(command) + "\n";
     }
 
     private String parseAndGetParsedText(String command) {
