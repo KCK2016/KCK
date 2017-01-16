@@ -96,17 +96,17 @@ public class RestaurantWindowController {
     }
 
     private String getCommandResult(String command){
-        String result = parseAndGetParsedText(command);
-        if (result.isEmpty()){
-            return "Niestety nie zrozumiałem. Czy możesz sparafrazować?\n";
-        } else {
-            return "Zamówiono " + result + ".\n";
-        }
+        return parseAndGetParsedText(command);
     }
 
     private String parseAndGetParsedText(String command) {
         KCKParser kckParser = new KCKParser();
-        String parserText = kckParser.getTokenizedText(command);
+        String parserText = null;
+        try {
+            parserText = kckParser.getTokenizedText(command);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return parserText;
     }
     private String getDishOfTheDay(String group) {
