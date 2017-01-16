@@ -6,6 +6,7 @@ import kck.order.OrderHandler;
 import java.io.IOException;
 import java.util.*;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Parser
 {
@@ -69,9 +70,17 @@ public class Parser
 
         Boolean przywitanie = zdanie.equals(String.valueOf(tokens.powitanie)) && (zdanie.length() == 1);
 
-        Boolean danie_dnia = zdanie.equals(String.valueOf(tokens.danie_dnia)) && (zdanie.length() == 1);
-        Boolean zupa_dnia = zdanie.equals(String.valueOf(tokens.zupa_dnia)) && (zdanie.length() == 2);
-        Boolean danie_glowne_dnia = zdanie.equals(String.valueOf(tokens.danie_glowne_dnia)) && (zdanie.length() == 2);
+        Boolean danie_dnia = zdanie.equals
+        (String.valueOf(tokens.danie_dnia)) && (zdanie.length() == 1) || zdanie.equals
+        (tokens.zapytanie +" "+ + tokens.danie_dnia);
+
+        Boolean zupa_dnia = zdanie.equals
+        (String.valueOf(tokens.zupa_dnia)) && (zdanie.length() == 2)|| zdanie.equals
+        (tokens.zapytanie +" "+ + tokens.zupa_dnia);
+
+        Boolean danie_glowne_dnia = zdanie.equals
+        (String.valueOf(tokens.danie_glowne_dnia)) && (zdanie.length() == 2) || zdanie.equals
+        (tokens.zapytanie +" "+ + tokens.danie_glowne_dnia);;
 
         Boolean zamowienie_produktu = zdanie.equals
         (tokens.powitanie +" "+ tokens.przecinek +" "+ tokens.zamownienie +" "+ tokens.produkt) || zdanie.equals
@@ -1119,14 +1128,14 @@ public class Parser
     {
         MenuList menuList = new MenuList();
         LinkedList lista = new LinkedList();
-
         String komentarze_produktu = "";
-
+        List<String> commentsProduct = new ArrayList<>();
         for (MenuList.Menu tok : menuList.getMenu())
         {
             if (tok.product.equals(produkt))
             {
                 komentarze_produktu = tok.comment.toString();
+                commentsProduct = new ArrayList<>(Arrays.asList(tok.comment));
             }
         }
 
@@ -1134,7 +1143,13 @@ public class Parser
         {
             if (tok.group.equals("alkohole"))
             {
-
+                List<String> comments = new ArrayList<String>(Arrays.asList(tok.comment));
+                List<String> finalCommentsProduct = commentsProduct;
+                comments = comments.stream().filter(com ->
+                      finalCommentsProduct.contains(com)).collect(Collectors.toList());
+                if (!comments.isEmpty()) {
+                    lista.add(tok);
+                }
             }
         }
 

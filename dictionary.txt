@@ -71,12 +71,12 @@ poprosimy,2,poprosimy o,poprosimy
 
 zamówić,6,zamówić,zamawiam
 
-które,3,które dania,które danie,jakie danie,jakie dania,jakie,która,który
-które,3,które są,które,jakie,jakie,jakie,jakie,która,który,jaka
+które,3,które dania,które danie,jakie danie,jakie dania,która,który
+które,3,które są,które,która,który,jaka jest,jakie jest,jakie,jaka
 co,3,co
 
 
-zawierają,4,zawiera,zawierają,posiadają,jest z,jest,są z,są,jest,mają
+zawierają,4,zawiera,zawierają,posiadają,jest z,jest,są z,są,jest,mają,ma
 zawierają,4,danie zawiera,dania zawierają,dania posiadają,danie jest z,danie jest,dania są,dania są z,dania z
 
 czy,5,czy
@@ -100,7 +100,7 @@ owoce,15,owocami,owoce
 
 wino,30,wino,wina
 
-pasuje,31,pasuje,pasują,pasują do
+pasuje,31,pasują do,pasuje do,pasuje,pasują
 
 pan,16,pani,pan
 
