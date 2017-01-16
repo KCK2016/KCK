@@ -9,7 +9,7 @@ chłodnik,10,chłodnika,zupę chłodnik
 
 kotlet schabowy,10,kotleta schabowego,kotlet schabowy,schabowego,kotleta,kotlet
 kopytka w sosie,10,kopytka w sosie
-filet z kurczaka,10,filet z kurczaka,kurczak,kurczaka
+filet z kurczaka,10,filet z kurczaka,kurczak,kurczaka,fileta z kurczaka
 filet z indyka,10,filet z indyka,indyk
 kaczka,10,kaczka,kaczkę,kaczki
 łosoś smażony,10,smażonego łososia,łososia zmażonego,łosoś smażony
@@ -76,7 +76,7 @@ które,3,które są,które,jakie,jakie,jakie,jakie,która,który,jaka
 co,3,co
 
 
-zawierają,4,zawiera,zawierają,posiadają,jest z,jest,są z,są,jest
+zawierają,4,zawiera,zawierają,posiadają,jest z,jest,są z,są,jest,mają
 zawierają,4,danie zawiera,dania zawierają,dania posiadają,danie jest z,danie jest,dania są,dania są z,dania z
 
 czy,5,czy
@@ -96,7 +96,14 @@ mięso,15,mięso,mięsem,mięsa
 cebula,15,cebula,cebulą
 czosnek,15,czosnkiem,czosnek
 owoce,15,owocami,owoce
+3 gałki,15,3 gałki
+
+wino,30,wino,wina
+
+pasuje,31,pasuje,pasują,pasują do
 
 pan,16,pani,pan
 
 polecić,17,polecić,poleca,poleci
+
+danię,20,danię,dania

@@ -65,12 +65,12 @@ public class KCK {
         proba1(tokenizer);
         System.out.println(" ");
 */
-        mojafunkcja(tokenizer);
+        funkcja(tokenizer);
 
 
     }
 
-    private static void mojafunkcja(Tokenizer tokenizer) throws IOException
+    private static void funkcja(Tokenizer tokenizer) throws IOException
     {
         String s = "";
         OrderHandler orderHandler = new OrderHandler();
@@ -86,6 +86,7 @@ public class KCK {
             {
                 System.out.println("Nie rozumiem.");
             }
+
             System.out.println(Parser.talk(tokenizer, orderHandler, menuList));
         }
     }

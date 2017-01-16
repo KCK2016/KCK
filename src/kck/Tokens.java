@@ -20,4 +20,7 @@ public class Tokens
         int spojnik = 13;
         int zupa_dnia = 18;
         int danie_glowne_dnia = 19;
+        int danie = 20;
+        int wino = 30;
+        int pasuje = 31;
 }
