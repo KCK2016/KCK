@@ -11,21 +11,22 @@ import java.util.Random;
  */
 public class KCKParser {
 
-    public String getTokenizedText(String userText) throws IOException {
+    private static OrderHandler orderHandler = new OrderHandler();
+
+    public static String getTokenizedText(String userText) throws IOException {
         Tokenizer tokenizer = tokenize(userText);
-        OrderHandler orderHandler = new OrderHandler();
         MenuList menuList = new MenuList();
         return Parser.talk(tokenizer, orderHandler, menuList);
     }
 
-    private Tokenizer tokenize(String userText) {
+    private static Tokenizer tokenize(String userText) {
         Tokenizer tokenizer = getTokenizer();
         userText = userText.toLowerCase();
         tokenizer.tokenize(userText);
         return tokenizer;
     }
 
-    private Tokenizer getTokenizer() {
+    private static Tokenizer getTokenizer() {
         Tokenizer tokenizer = null;
         try {
             tokenizer = new Tokenizer();

@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import kck.GUI.RestaurantWindow;
 import kck.GUI.view.JavaFX.KAlert;
 import kck.KCKParser;
+import kck.order.OrderHandler;
 
 import javax.xml.ws.Action;
 import java.io.IOException;
@@ -26,7 +27,6 @@ public class RestaurantWindowController {
     private static final String soups = "Zupy";
     private static final String mainDish = "Dania główne";
     private static final int TEXT_FIELD_MAX_LENGTH = 200;
-
     // Reference to the main application.
     private RestaurantWindow mainApp;
     Action action;
