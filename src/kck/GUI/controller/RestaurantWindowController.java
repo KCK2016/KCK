@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import kck.GUI.RestaurantWindow;
 import kck.GUI.view.JavaFX.KAlert;
 import kck.KCKParser;
+import kck.order.OrderHandler;
 
 import javax.xml.ws.Action;
 import java.io.IOException;
@@ -26,7 +27,6 @@ public class RestaurantWindowController {
     private static final String soups = "Zupy";
     private static final String mainDish = "Dania główne";
     private static final int TEXT_FIELD_MAX_LENGTH = 200;
-
     // Reference to the main application.
     private RestaurantWindow mainApp;
     Action action;
@@ -90,23 +90,23 @@ public class RestaurantWindowController {
         else return;
         if (!command.isEmpty()){
             command += "\n";
-            textAreaOutput.appendText(command);
+            textAreaOutput.appendText("Klient: " + command);
             textAreaOutput.appendText(getCommandResult(command));
         }
     }
 
     private String getCommandResult(String command){
-        String result = parseAndGetParsedText(command);
-        if (result.isEmpty()){
-            return "Niestety nie zrozumiałem. Czy możesz sparafrazować?\n";
-        } else {
-            return "Zamówiono " + result + ".\n";
-        }
+        return "Kelner: " + parseAndGetParsedText(command) + "\n";
     }
 
     private String parseAndGetParsedText(String command) {
         KCKParser kckParser = new KCKParser();
-        String parserText = kckParser.getTokenizedText(command);
+        String parserText = null;
+        try {
+            parserText = kckParser.getTokenizedText(command);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return parserText;
     }
     private String getDishOfTheDay(String group) {
@@ -126,6 +126,7 @@ public class RestaurantWindowController {
         //stanu zamówienia i pól tekstowych.
         textAreaOutput.clear();
         textAreaCommand.clear();
+        KCKParser.makeNewClient();
     }
 
     //Karta dań
@@ -147,17 +148,8 @@ public class RestaurantWindowController {
         Label menu = new Label();
 
         try {
-            menu.setText(getMenu());
+            menu.setText(getMenu()[0]);
             dialogLayout.getChildren().add(menu);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Label l = new Label();
-
-        try {
-            l.setText(getMenu());
-            dialogLayout.getChildren().add(l);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -172,14 +164,20 @@ public class RestaurantWindowController {
 
     }
 
-    String getMenu() throws IOException {
-        String content = new String(Files.readAllBytes(Paths.get("baza.txt")));
-        String menu="";
+    String[] getMenu() throws IOException {
+        String file = new String(Files.readAllBytes(Paths.get("baza.txt")));
+        String[] content=file.split("[\n]");
+        String[] menu=new String[content.length];
+
         Pattern p = Pattern.compile("(?<=[\\n,:])(.*?)(?=[:/])");
-        Matcher m = p.matcher(content);
-        while(m.find()) {
-            menu+=m.group()+'\n';
+        for(int i=0;i<content.length;i++){
+            menu[i]="";
+            Matcher m = p.matcher(content[i]);
+            while(m.find()) {
+                menu[i]+=m.group()+"\n";
+            }
         }
+
         return menu;
     }
 

@@ -1,5 +1,7 @@
 package kck;
 
+import kck.order.OrderHandler;
+
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Random;
@@ -9,25 +11,26 @@ import java.util.Random;
  */
 public class KCKParser {
 
-    public String getTokenizedText(String userText) {
-        Tokenizer tokenizer = tokenize(userText);
-        StringBuilder builder = new StringBuilder();
-        buildText(tokenizer, builder);
-        return builder.toString().trim();
+    private static OrderHandler orderHandler = new OrderHandler();
+
+    public static void makeNewClient() {
+        orderHandler = new OrderHandler();
     }
 
-    private Tokenizer tokenize(String userText) {
+    public static String getTokenizedText(String userText) throws IOException {
+        Tokenizer tokenizer = tokenize(userText);
+        MenuList menuList = new MenuList();
+        return Parser.talk(tokenizer, orderHandler, menuList);
+    }
+
+    private static Tokenizer tokenize(String userText) {
         Tokenizer tokenizer = getTokenizer();
         userText = userText.toLowerCase();
         tokenizer.tokenize(userText);
         return tokenizer;
     }
 
-    private void buildText(Tokenizer tokenizer, StringBuilder builder) {
-        tokenizer.getTokens().stream().filter(token -> token.token == 10).forEach(token -> builder.append(token.boss).append(" "));
-    }
-
-    private Tokenizer getTokenizer() {
+    private static Tokenizer getTokenizer() {
         Tokenizer tokenizer = null;
         try {
             tokenizer = new Tokenizer();
