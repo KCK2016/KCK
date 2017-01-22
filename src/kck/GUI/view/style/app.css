@@ -242,3 +242,7 @@ controls.text-area {
 #send.button {
     -fx-font-size: 18pt;
 }
+
+#waiter-circle {
+    -fx-fill: #717171;
+}

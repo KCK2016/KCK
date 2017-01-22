@@ -3,13 +3,19 @@ package kck.GUI.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Point2D;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Circle;
 import kck.GUI.RestaurantWindow;
 import kck.GUI.view.JavaFX.KAlert;
+import kck.GUI.view.JavaFX.KAnimation;
 import kck.KCKParser;
 
 import javax.xml.ws.Action;
@@ -23,8 +29,9 @@ import java.util.regex.Pattern;
 
 public class RestaurantWindowController {
 
-    private static final String soups = "Zupy";
-    private static final String mainDish = "Dania główne";
+    private static final String VIEW_DIALOG_DISHES_FXML = "view/DialogDishes.fxml";
+    private static final String SOUPS = "Zupy";
+    private static final String MAIN_DISH = "Dania główne";
     private static final String TABLE_ENABLED = "Wolny";
     private static final String TABLE_DISABLED = "Zajęty";
     private static final int TEXT_FIELD_MAX_LENGTH = 200;
@@ -39,19 +46,14 @@ public class RestaurantWindowController {
     @FXML
     TextArea textAreaOutput;
     @FXML
-    Button buttonTable01;
-    @FXML
-    Button buttonTable02;
-    @FXML
-    Button buttonTable03;
-    @FXML
-    Button buttonTable04;
+    Circle waiterCicle;
 
     /**
      * Is called by the main application to give a reference back to itself.
      */
     public void setMainApp(RestaurantWindow mainApp) {
         this.mainApp = mainApp;
+        waiterCicle.toFront();
         setCharacterLimit(textAreaCommand, TEXT_FIELD_MAX_LENGTH);
         setDishOfTheDay();
     }
@@ -82,8 +84,8 @@ public class RestaurantWindowController {
     }
 
     public void setDishOfTheDay() {
-        textAreaOutput.appendText("zupa dnia: " + getDishOfTheDay(soups) + "\n");
-        textAreaOutput.appendText("danie dnia: " + getDishOfTheDay(mainDish) + "\n");
+        textAreaOutput.appendText("zupa dnia: " + getDishOfTheDay(SOUPS) + "\n");
+        textAreaOutput.appendText("danie dnia: " + getDishOfTheDay(MAIN_DISH) + "\n");
     }
 
     //Wyślij
@@ -116,6 +118,7 @@ public class RestaurantWindowController {
         }
         return parserText;
     }
+
     private String getDishOfTheDay(String group) {
         KCKParser kckParser = new KCKParser();
         try {
@@ -124,7 +127,7 @@ public class RestaurantWindowController {
             return "error";
         }
     }
-    
+
     //Stolik
     @FXML
     public void buttonTableClick(MouseEvent event){
@@ -133,9 +136,9 @@ public class RestaurantWindowController {
     }
 
     private void resetTables(){
-        //TODO
-        //CALL BACK THE WAITER
         if (tableChoosenInstance != null) {
+            //TODO
+            //CALL THE BACKING ANIMATION OF WAITER
             tableChoosenInstance.setText(TABLE_ENABLED);
             tableChoosenInstance.setDisable(false);
             tableChoosenInstance = null;
@@ -143,11 +146,26 @@ public class RestaurantWindowController {
     }
 
     private void setTable(Button buttonTable){
-        //TODO
-        //CALL WAITER TO THE TABLE
+        Point2D startPoint;
+        if (tableChoosenInstance != null){
+            //startPoint = new Point2D(waiterCicle.getLayoutX(),
+            //   waiterCicle.getLayoutY());
+        }
+        else{
+            //TODO
+            //ADD A STARTING POINT FOR NOT YET SELECTED TABLE
+            startPoint = new Point2D(
+                buttonTable.getParent().getLayoutX(),
+                buttonTable.getParent().getLayoutY());
+        }
+
+        Point2D aimPoint = new Point2D(buttonTable.getParent().getLayoutX(),
+            buttonTable.getParent().getLayoutY());
+        //textAreaOutput.appendText(startPoint.toString() + "\n");
+        //KAnimation.pathTransition(buttonTable, startPoint, aimPoint);
+        buttonTable.setText(TABLE_DISABLED);
+        buttonTable.setDisable(true);
         tableChoosenInstance = buttonTable;
-        tableChoosenInstance.setText(TABLE_DISABLED);
-        tableChoosenInstance.setDisable(true);
     }
 
     //Nowy klient
@@ -164,7 +182,7 @@ public class RestaurantWindowController {
     public void buttonDishesClick(MouseEvent event){
         GridPane dialogLayout = new GridPane();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(RestaurantWindow.class.getResource("view/DialogDishes.fxml"));
+        loader.setLocation(RestaurantWindow.class.getResource(VIEW_DIALOG_DISHES_FXML));
         try {
             dialogLayout = loader.load();
             fillMenu(dialogLayout, 4);
@@ -194,8 +212,9 @@ public class RestaurantWindowController {
             menu[i]="";
             Matcher m = p.matcher(content[i]);
             while(m.find()) {
-                grid.add(new Label(m.group()+"\n"), col, row[col]++);
+                grid.add(new Label(m.group().trim()+"\n"), col, row[col]++);
             }
+            grid.add(new Label("\n"), col, row[col]++);
             col++;
             if (col + 1 > cols ) col = 0;
         }
