@@ -11,9 +11,7 @@ import javafx.scene.layout.GridPane;
 import kck.GUI.RestaurantWindow;
 import kck.GUI.view.JavaFX.KAlert;
 import kck.KCKParser;
-import kck.order.OrderHandler;
 
-import javax.annotation.Generated;
 import javax.xml.ws.Action;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,16 +25,14 @@ public class RestaurantWindowController {
 
     private static final String soups = "Zupy";
     private static final String mainDish = "Dania główne";
-    private static final String TableDisabled = "Zajęty";
-    private static final String TableEnabled = "Wolny";
+    private static final String TABLE_ENABLED = "Wolny";
+    private static final String TABLE_DISABLED = "Zajęty";
     private static final int TEXT_FIELD_MAX_LENGTH = 200;
-    private static boolean tableChoosen = false;
-    private static Button tableChoosenInstance;
+    private static Button tableChoosenInstance = null;
 
     // Reference to the main application.
     private RestaurantWindow mainApp;
     Action action;
-
 
     @FXML
     TextArea textAreaCommand;
@@ -95,10 +91,6 @@ public class RestaurantWindowController {
     public void buttonSubmitClick(MouseEvent event){
         String command = textAreaCommand.getText();
         textAreaCommand.clear();
-
-        //TO DO
-        //Sprawdzanie czy nie ma enterów, spacji
-        //na początku i końcu stringa.
         if(!command.isEmpty()){
             command = command.trim();
         }
@@ -132,40 +124,36 @@ public class RestaurantWindowController {
             return "error";
         }
     }
-
-
+    
     //Stolik
     @FXML
     public void buttonTableClick(MouseEvent event){
-        setDisableStateOnTables(false);
-        setTextOnTables(TableEnabled);
-        tableChoosen = true;
-        tableChoosenInstance = (Button) event.getSource();
+        resetTables();
+        setTable((Button) event.getSource());
+    }
+
+    private void resetTables(){
+        //TODO
+        //CALL BACK THE WAITER
+        if (tableChoosenInstance != null) {
+            tableChoosenInstance.setText(TABLE_ENABLED);
+            tableChoosenInstance.setDisable(false);
+            tableChoosenInstance = null;
+        }
+    }
+
+    private void setTable(Button buttonTable){
+        //TODO
+        //CALL WAITER TO THE TABLE
+        tableChoosenInstance = buttonTable;
+        tableChoosenInstance.setText(TABLE_DISABLED);
         tableChoosenInstance.setDisable(true);
-        tableChoosenInstance.setText(TableDisabled);
-    }
-
-    private void setDisableStateOnTables(boolean state){
-        buttonTable01.setDisable(state);
-        buttonTable02.setDisable(state);
-        buttonTable03.setDisable(state);
-        buttonTable04.setDisable(state);
-    }
-
-    private void setTextOnTables(String text){
-        buttonTable01.setText(text);
-        buttonTable02.setText(text);
-        buttonTable03.setText(text);
-        buttonTable04.setText(text);
     }
 
     //Nowy klient
     @FXML
     public void buttonNewClientClick(MouseEvent event){
-        //TODO
-        //CALL BACK THE WEITER
-        setDisableStateOnTables(false);
-        setTextOnTables(TableEnabled);
+        resetTables();
         textAreaOutput.clear();
         textAreaCommand.clear();
         KCKParser.makeNewClient();
