@@ -11,7 +11,6 @@ import javafx.scene.layout.GridPane;
 import kck.GUI.RestaurantWindow;
 import kck.GUI.view.JavaFX.KAlert;
 import kck.KCKParser;
-import kck.order.OrderHandler;
 
 import javax.xml.ws.Action;
 import java.io.IOException;
@@ -26,16 +25,27 @@ public class RestaurantWindowController {
 
     private static final String soups = "Zupy";
     private static final String mainDish = "Dania główne";
+    private static final String TABLE_ENABLED = "Wolny";
+    private static final String TABLE_DISABLED = "Zajęty";
     private static final int TEXT_FIELD_MAX_LENGTH = 200;
+    private static Button tableChoosenInstance = null;
+
     // Reference to the main application.
     private RestaurantWindow mainApp;
     Action action;
-
 
     @FXML
     TextArea textAreaCommand;
     @FXML
     TextArea textAreaOutput;
+    @FXML
+    Button buttonTable01;
+    @FXML
+    Button buttonTable02;
+    @FXML
+    Button buttonTable03;
+    @FXML
+    Button buttonTable04;
 
     /**
      * Is called by the main application to give a reference back to itself.
@@ -58,7 +68,7 @@ public class RestaurantWindowController {
         txtArea.setTextFormatter(new TextFormatter(filter));
     }
 
-    //Enter
+    //KeyEvents on textAreaCommand
     @FXML
     public void textAreaCommandKeyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode().equals(KeyCode.ENTER))  {
@@ -75,15 +85,12 @@ public class RestaurantWindowController {
         textAreaOutput.appendText("zupa dnia: " + getDishOfTheDay(soups) + "\n");
         textAreaOutput.appendText("danie dnia: " + getDishOfTheDay(mainDish) + "\n");
     }
+
     //Wyślij
     @FXML
     public void buttonSubmitClick(MouseEvent event){
         String command = textAreaCommand.getText();
         textAreaCommand.clear();
-
-        //TO DO
-        //Sprawdzanie czy nie ma enterów, spacji
-        //na początku i końcu stringa.
         if(!command.isEmpty()){
             command = command.trim();
         }
@@ -117,13 +124,36 @@ public class RestaurantWindowController {
             return "error";
         }
     }
+    
+    //Stolik
+    @FXML
+    public void buttonTableClick(MouseEvent event){
+        resetTables();
+        setTable((Button) event.getSource());
+    }
+
+    private void resetTables(){
+        //TODO
+        //CALL BACK THE WAITER
+        if (tableChoosenInstance != null) {
+            tableChoosenInstance.setText(TABLE_ENABLED);
+            tableChoosenInstance.setDisable(false);
+            tableChoosenInstance = null;
+        }
+    }
+
+    private void setTable(Button buttonTable){
+        //TODO
+        //CALL WAITER TO THE TABLE
+        tableChoosenInstance = buttonTable;
+        tableChoosenInstance.setText(TABLE_DISABLED);
+        tableChoosenInstance.setDisable(true);
+    }
 
     //Nowy klient
     @FXML
     public void buttonNewClientClick(MouseEvent event){
-        //TO DO
-        //Zerowanie i czyszczenie stanu stolików,
-        //stanu zamówienia i pól tekstowych.
+        resetTables();
         textAreaOutput.clear();
         textAreaCommand.clear();
         KCKParser.makeNewClient();
@@ -132,28 +162,16 @@ public class RestaurantWindowController {
     //Karta dań
     @FXML
     public void buttonDishesClick(MouseEvent event){
-        //TO DO
-        //Wyświetlanie okna dialogowego z listą dań.
         GridPane dialogLayout = new GridPane();
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(RestaurantWindow.class.getResource("view/DialogDishes.fxml"));
         try {
             dialogLayout = loader.load();
+            fillMenu(dialogLayout, 4);
         }
         catch (IOException e){
-            // TO DO
-            //throw new UserException(e.getMessage());
-        }
-        Label menu = new Label();
-
-        try {
-            menu.setText(getMenu()[0]);
-            dialogLayout.getChildren().add(menu);
-        } catch (IOException e) {
             e.printStackTrace();
         }
-
         KAlert alert = new KAlert(
                 Alert.AlertType.NONE,
                 "Karta dań",
@@ -164,7 +182,9 @@ public class RestaurantWindowController {
 
     }
 
-    String[] getMenu() throws IOException {
+    private void fillMenu(GridPane grid, int columnsAmount) throws IOException {
+        int cols =  columnsAmount;
+        int col = 0, row[] = new int[cols];
         String file = new String(Files.readAllBytes(Paths.get("baza.txt")));
         String[] content=file.split("[\n]");
         String[] menu=new String[content.length];
@@ -174,11 +194,11 @@ public class RestaurantWindowController {
             menu[i]="";
             Matcher m = p.matcher(content[i]);
             while(m.find()) {
-                menu[i]+=m.group()+"\n";
+                grid.add(new Label(m.group()+"\n"), col, row[col]++);
             }
+            col++;
+            if (col + 1 > cols ) col = 0;
         }
-
-        return menu;
     }
 
     //Wyjście

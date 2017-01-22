@@ -7,19 +7,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 <GridPane maxHeight="+Infinity" maxWidth="+Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@style/dialog.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
-  <columnConstraints>
-    <ColumnConstraints />
-    <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" />
-      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="Infinity" minWidth="-Infinity" />
-  </columnConstraints>
   <padding>
     <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
   </padding>
-  <rowConstraints>
-    <RowConstraints />
-    <RowConstraints maxHeight="Infinity" minHeight="-Infinity" valignment="CENTER" vgrow="ALWAYS" />
-      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
-  </rowConstraints>
-   <children>
-   </children>
 </GridPane>
