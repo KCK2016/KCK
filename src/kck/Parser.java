@@ -179,10 +179,8 @@ public class Parser
         System.out.println("ktore_dania_zawierają" + ktore_dania_zawierają);
         System.out.println("ktore_grupy_zawierają" + ktore_grupy_zawierają);
         System.out.println("ktore_grupy_nie_zawierają" + ktore_grupy_nie_zawierają);
-
         System.out.println("ktore_grupy_nie_zawierają" + zamowienie_grupy_ktore_nie_zawierają);
         System.out.println("wino_i_danie_glowne" + wino_do_danie_glowne);
-
         System.out.println("prosba_o_rachunek" + prosba_o_rachunek);
 
         String odpowiedz_zwrotna = "";
@@ -202,7 +200,7 @@ public class Parser
         else if (ktore_dania_zawierają)          odpowiedz_zwrotna = ktore_dania_zawierają(tokenizer,orderHandler,menuList);
         else if (ktore_grupy_zawierają)          odpowiedz_zwrotna = ktore_grupy_zawierają(tokenizer,orderHandler,menuList);
         else if (ktore_grupy_nie_zawierają)      odpowiedz_zwrotna = ktore_grupy_nie_zawierają(tokenizer,orderHandler,menuList);
-        else if (zamowienie_grupy_ktore_nie_zawierają) odpowiedz_zwrotna = zamowienie_grupy_ktore_nie_zawierają(tokenizer,orderHandler,menuList,dopytaj);
+        else if (zamowienie_grupy_ktore_nie_zawierają) odpowiedz_zwrotna = zamowienie_grupy_ktore_nie_zawierają(tokenizer,orderHandler,menuList);
         else if (wino_do_danie_glowne)           odpowiedz_zwrotna = wino_do_danie_glowne(tokenizer,orderHandler,menuList);
         else if (prosba_o_rachunek)              odpowiedz_zwrotna = prosba_o_rachunek(tokenizer, orderHandler, menuList);
         else                                     odpowiedz_zwrotna = niezrozumialem();
@@ -437,7 +435,7 @@ public class Parser
         return odpowiedz_zwrotna;
     }
 
-    private static String zamowienie_grupy_ktore_nie_zawierają(Tokenizer tokenizer, OrderHandler orderHandler, MenuList menuList, String dopytaj) throws IOException
+    private static String zamowienie_grupy_ktore_nie_zawierają(Tokenizer tokenizer, OrderHandler orderHandler, MenuList menuList) throws IOException
     {
         Tokens tokens = new Tokens();
 
@@ -465,8 +463,6 @@ public class Parser
             }
         }
 
-
-        dopytaj = "Jakie danie z grupy: " + grupa + ", które nie zawiera składnika: " + skladnik +" życzy Pan/Pani sobie";
         return all_products_from_group_not_contains_ingredient(grupa,skladnik);
     }
 
@@ -517,7 +513,6 @@ public class Parser
                 i = i + 1;
             }
         }
-        /// kom
 
 
         Random random = new Random(seed);
@@ -757,7 +752,8 @@ public class Parser
                 List<String> finalCommentsProduct = commentsProduct;
                 comments = comments.stream().filter(com ->
                       finalCommentsProduct.contains(com)).collect(Collectors.toList());
-                if (!comments.isEmpty()) {
+                if (!comments.isEmpty())
+                {
                     lista.add(tok);
                 }
             }
