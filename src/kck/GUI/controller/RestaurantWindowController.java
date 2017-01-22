@@ -58,7 +58,7 @@ public class RestaurantWindowController {
         txtArea.setTextFormatter(new TextFormatter(filter));
     }
 
-    //Enter
+    //KeyEvents on textAreaCommand
     @FXML
     public void textAreaCommandKeyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode().equals(KeyCode.ENTER))  {
@@ -75,6 +75,7 @@ public class RestaurantWindowController {
         textAreaOutput.appendText("zupa dnia: " + getDishOfTheDay(soups) + "\n");
         textAreaOutput.appendText("danie dnia: " + getDishOfTheDay(mainDish) + "\n");
     }
+
     //Wyślij
     @FXML
     public void buttonSubmitClick(MouseEvent event){
@@ -121,9 +122,6 @@ public class RestaurantWindowController {
     //Nowy klient
     @FXML
     public void buttonNewClientClick(MouseEvent event){
-        //TO DO
-        //Zerowanie i czyszczenie stanu stolików,
-        //stanu zamówienia i pól tekstowych.
         textAreaOutput.clear();
         textAreaCommand.clear();
         KCKParser.makeNewClient();
@@ -132,28 +130,16 @@ public class RestaurantWindowController {
     //Karta dań
     @FXML
     public void buttonDishesClick(MouseEvent event){
-        //TO DO
-        //Wyświetlanie okna dialogowego z listą dań.
         GridPane dialogLayout = new GridPane();
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(RestaurantWindow.class.getResource("view/DialogDishes.fxml"));
         try {
             dialogLayout = loader.load();
+            fillMenu(dialogLayout, 4);
         }
         catch (IOException e){
-            // TO DO
-            //throw new UserException(e.getMessage());
-        }
-        Label menu = new Label();
-
-        try {
-            menu.setText(getMenu()[0]);
-            dialogLayout.getChildren().add(menu);
-        } catch (IOException e) {
             e.printStackTrace();
         }
-
         KAlert alert = new KAlert(
                 Alert.AlertType.NONE,
                 "Karta dań",
@@ -164,7 +150,9 @@ public class RestaurantWindowController {
 
     }
 
-    String[] getMenu() throws IOException {
+    private void fillMenu(GridPane grid, int columnsAmount) throws IOException {
+        int cols =  columnsAmount;
+        int col = 0, row[] = new int[cols];
         String file = new String(Files.readAllBytes(Paths.get("baza.txt")));
         String[] content=file.split("[\n]");
         String[] menu=new String[content.length];
@@ -174,11 +162,11 @@ public class RestaurantWindowController {
             menu[i]="";
             Matcher m = p.matcher(content[i]);
             while(m.find()) {
-                menu[i]+=m.group()+"\n";
+                grid.add(new Label(m.group()+"\n"), col, row[col]++);
             }
+            col++;
+            if (col + 1 > cols ) col = 0;
         }
-
-        return menu;
     }
 
     //Wyjście

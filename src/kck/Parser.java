@@ -217,7 +217,7 @@ public class Parser
         else if (wino_do_danie_glowne)           odpowiedz_zwrotna = wino_do_danie_glowne(tokenizer,orderHandler,menuList);
 
         else if (prosba_o_rachunek)              odpowiedz_zwrotna = prosba_o_rachunek(tokenizer, orderHandler, menuList);
-        else                                     odpowiedz_zwrotna = niezrozumialem();
+        else                                     odpowiedz_zwrotna = notRecognized();
 
 
         /*Tokens tokens = new Tokens();
@@ -382,7 +382,7 @@ public class Parser
         {
             delete_token(queue_boss, queue_sequence, queue_token);
 
-            if (queue_token.size() == 0) niezrozumialem();
+            if (queue_token.size() == 0) notRecognized();
 
             else if ((queue_token.size() > 0) && queue_token.element().equals(tokens.zawiera))                       // zawierają
             {
@@ -413,7 +413,7 @@ public class Parser
                 }
                 else
                 {
-                    odpowiedz_zwrotna = niezrozumialem();
+                    odpowiedz_zwrotna = notRecognized();
                     answer = true;
                 }
             }
@@ -443,7 +443,7 @@ public class Parser
                     }
                     else
                     {
-                            odpowiedz_zwrotna = niezrozumialem();
+                            odpowiedz_zwrotna = notRecognized();
                             answer = true;
                     }
                 }
@@ -475,7 +475,7 @@ public class Parser
                     }
                     else
                     {
-                        odpowiedz_zwrotna = niezrozumialem();
+                        odpowiedz_zwrotna = notRecognized();
                         answer = true;
                     }
                 }
@@ -496,13 +496,13 @@ public class Parser
                         }
                         else
                         {
-                            odpowiedz_zwrotna = niezrozumialem();
+                            odpowiedz_zwrotna = notRecognized();
                             answer = true;
                         }
                     }
                     else
                     {
-                        odpowiedz_zwrotna = niezrozumialem();
+                        odpowiedz_zwrotna = notRecognized();
                         answer = true;
                     }
                 }
@@ -516,7 +516,7 @@ public class Parser
             }
             else
             {
-                odpowiedz_zwrotna = niezrozumialem();
+                odpowiedz_zwrotna = notRecognized();
             }
         }
 
@@ -548,19 +548,19 @@ public class Parser
                         }
                         else
                         {
-                            odpowiedz_zwrotna = niezrozumialem();
+                            odpowiedz_zwrotna = notRecognized();
                             answer = true;
                         }
                     }
                     else
                     {
-                        odpowiedz_zwrotna = niezrozumialem();
+                        odpowiedz_zwrotna = notRecognized();
                         answer = true;
                     }
                 }
                 else
                 {
-                    odpowiedz_zwrotna = niezrozumialem();
+                    odpowiedz_zwrotna = notRecognized();
                     answer = true;
                 }
         }
@@ -587,13 +587,13 @@ public class Parser
 
         else if (!answer)
         {
-                odpowiedz_zwrotna = niezrozumialem();
+                odpowiedz_zwrotna = notRecognized();
                 answer = true;
         }
 
         else
         {
-                odpowiedz_zwrotna = niezrozumialem();
+                odpowiedz_zwrotna = notRecognized();
                 answer = true;
         }
 
@@ -1160,9 +1160,9 @@ public class Parser
         return "Wina, które pasują do: " + produkt + " to: " + lista1;
     }
 
-    private static String niezrozumialem()
+    private static String notRecognized()
     {
-        String odpowiedz = "Kelner: Nie zrozuamialem. Proszę inaczej sformułować zdanie.";
+        String odpowiedz = "Kelner: Nie zrozumiałem. Proszę inaczej sformułować zdanie.";
         return odpowiedz;
     }
 
