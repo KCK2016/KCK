@@ -13,6 +13,7 @@ import kck.GUI.view.JavaFX.KAlert;
 import kck.KCKParser;
 import kck.order.OrderHandler;
 
+import javax.annotation.Generated;
 import javax.xml.ws.Action;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,7 +27,12 @@ public class RestaurantWindowController {
 
     private static final String soups = "Zupy";
     private static final String mainDish = "Dania główne";
+    private static final String TableDisabled = "Zajęty";
+    private static final String TableEnabled = "Wolny";
     private static final int TEXT_FIELD_MAX_LENGTH = 200;
+    private static boolean tableChoosen = false;
+    private static Button tableChoosenInstance;
+
     // Reference to the main application.
     private RestaurantWindow mainApp;
     Action action;
@@ -36,6 +42,14 @@ public class RestaurantWindowController {
     TextArea textAreaCommand;
     @FXML
     TextArea textAreaOutput;
+    @FXML
+    Button buttonTable01;
+    @FXML
+    Button buttonTable02;
+    @FXML
+    Button buttonTable03;
+    @FXML
+    Button buttonTable04;
 
     /**
      * Is called by the main application to give a reference back to itself.
@@ -119,9 +133,39 @@ public class RestaurantWindowController {
         }
     }
 
+
+    //Stolik
+    @FXML
+    public void buttonTableClick(MouseEvent event){
+        setDisableStateOnTables(false);
+        setTextOnTables(TableEnabled);
+        tableChoosen = true;
+        tableChoosenInstance = (Button) event.getSource();
+        tableChoosenInstance.setDisable(true);
+        tableChoosenInstance.setText(TableDisabled);
+    }
+
+    private void setDisableStateOnTables(boolean state){
+        buttonTable01.setDisable(state);
+        buttonTable02.setDisable(state);
+        buttonTable03.setDisable(state);
+        buttonTable04.setDisable(state);
+    }
+
+    private void setTextOnTables(String text){
+        buttonTable01.setText(text);
+        buttonTable02.setText(text);
+        buttonTable03.setText(text);
+        buttonTable04.setText(text);
+    }
+
     //Nowy klient
     @FXML
     public void buttonNewClientClick(MouseEvent event){
+        //TODO
+        //CALL BACK THE WEITER
+        setDisableStateOnTables(false);
+        setTextOnTables(TableEnabled);
         textAreaOutput.clear();
         textAreaCommand.clear();
         KCKParser.makeNewClient();

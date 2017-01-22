@@ -70,7 +70,7 @@
                               <StackPane>
                                  <children>
                                     <Rectangle height="80.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="OUTSIDE" styleClass="table-rectangle" width="120.0" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" styleClass="table-state-button" text="Wolny" textAlignment="CENTER">
+                                    <Button fx:id="buttonTable01" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#buttonTableClick" prefHeight="80.0" prefWidth="120.0" styleClass="table-state-button" text="Wolny" textAlignment="CENTER">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -80,7 +80,7 @@
                               <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1">
                                  <children>
                                     <Rectangle height="80.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="OUTSIDE" styleClass="table-rectangle" width="120.0" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" styleClass="table-state-button" text="Wolny" textAlignment="CENTER">
+                                    <Button fx:id="buttonTable02" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#buttonTableClick" prefHeight="80.0" prefWidth="120.0" styleClass="table-state-button" text="Wolny" textAlignment="CENTER">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -90,7 +90,7 @@
                               <StackPane layoutX="309.0" layoutY="10.0" GridPane.rowIndex="1">
                                  <children>
                                     <Rectangle height="80.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="OUTSIDE" styleClass="table-rectangle" width="120.0" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" styleClass="table-state-button" text="Wolny" textAlignment="CENTER">
+                                    <Button fx:id="buttonTable03" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#buttonTableClick" prefHeight="80.0" prefWidth="120.0" styleClass="table-state-button" text="Wolny" textAlignment="CENTER">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -100,7 +100,7 @@
                               <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
                                     <Rectangle height="80.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="OUTSIDE" styleClass="table-rectangle" width="120.0" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" styleClass="table-state-button" text="Wolny" textAlignment="CENTER">
+                                    <Button fx:id="buttonTable04" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#buttonTableClick" prefHeight="80.0" prefWidth="120.0" styleClass="table-state-button" text="Wolny" textAlignment="CENTER">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
