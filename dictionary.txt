@@ -12,7 +12,7 @@ kopytka w sosie,10,kopytka w sosie
 filet z kurczaka,10,filet z kurczaka,kurczak,kurczaka,fileta z kurczaka
 filet z indyka,10,filet z indyka,indyk
 kaczka,10,kaczka,kaczkę,kaczki
-łosoś smażony,10,smażonego łososia,łososia zmażonego,łosoś smażony
+łosoś smażony,10,smażonego łososia,łososia zmażonego,łosoś smażony,łososia
 pierogi z mięsem,10,pierogi z mięsem
 pierogi po rusku,10,pierogi po rusku,pierogi ruskie,ruskie
 pierogi z truskawkami,10,pierogi z truskawkami,pierogi z owocami
@@ -51,6 +51,7 @@ danie główne dnia,19,danie główne dnia
 dania główne,7,dania główne,danie główne
 zupy,7,zupa,zupę,zupy
 desery,7,desery,deser,deser
+przystawki,7,przystawki,przystawka
 
 danie dnia,9,danie dnia
 
@@ -94,8 +95,10 @@ nie,14,nie,bez
 
 mięso,15,mięso,mięsem,mięsa
 cebula,15,cebula,cebulą
-czosnek,15,czosnkiem,czosnek
+czosnek,15,czosnkiem,czosnek,czosnku
 owoce,15,owocami,owoce
+czekolada,15,czekolady,czekolada
+bita śmietana,15,bitą śmietanę,bitą śmietaną,bita śmietana
 3 gałki,15,3 gałki
 
 wino,30,wino,wina
