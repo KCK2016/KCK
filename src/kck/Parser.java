@@ -609,11 +609,11 @@ public class Parser
                 Boolean found = s.contains(ingredient);
                 if (found)
                 {
-                    odpowiedz = product + " zawiera składnik " + ingredient;
+                    odpowiedz = "Produkt: " + product + " zawiera składnik " + ingredient;
                 }
                 else
                 {
-                    odpowiedz = product + " nie zawiera składnika " + ingredient;
+                    odpowiedz = "Produkt: " + product + " nie zawiera składnika " + ingredient;
                 }
 
             }
