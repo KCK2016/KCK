@@ -12,7 +12,7 @@ public class Parser
 {
 
     static String s;
-    static long seed;
+    private static long seed;
 
     public Parser(String s)
     {
@@ -21,8 +21,9 @@ public class Parser
     }
 
 
-    static String talk(Tokenizer tokenizer, OrderHandler orderHandler, MenuList menuList) throws IOException
+    static String talk(Tokenizer tokenizer, OrderHandler orderHandler, MenuList menuList, Long time) throws IOException
     {
+        seed = time;
         String response = "";
 
         for (Tokenizer.Token tok : tokenizer.getTokens())

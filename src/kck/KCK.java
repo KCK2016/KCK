@@ -2,12 +2,7 @@ package kck;
 
 import kck.order.OrderHandler;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Random;
 import java.util.Scanner;
 
 
@@ -65,31 +60,31 @@ public class KCK {
         proba1(tokenizer);
         System.out.println(" ");
 */
-        funkcja(tokenizer);
+//        funkcja(tokenizer);
 
 
     }
 
-    private static void funkcja(Tokenizer tokenizer) throws IOException
-    {
-        String s = "";
-        OrderHandler orderHandler = new OrderHandler();
-        MenuList menuList = new MenuList();
-        Scanner scanner = new Scanner(System.in);
-        while(!s.equals("Do widzenia")|!s.equals("do widzenia"))
-        {
-            s = scanner.nextLine();
-            try {
-                tokenizer.tokenize(s.toLowerCase());
-            }
-            catch (Exception e)
-            {
-                System.out.println("Nie rozumiem.");
-            }
-
-            System.out.println(Parser.talk(tokenizer, orderHandler, menuList));
-        }
-    }
+//    private static void funkcja(Tokenizer tokenizer) throws IOException
+//    {
+//        String s = "";
+//        OrderHandler orderHandler = new OrderHandler();
+//        MenuList menuList = new MenuList();
+//        Scanner scanner = new Scanner(System.in);
+//        while(!s.equals("Do widzenia")|!s.equals("do widzenia"))
+//        {
+//            s = scanner.nextLine();
+//            try {
+//                tokenizer.tokenize(s.toLowerCase());
+//            }
+//            catch (Exception e)
+//            {
+//                System.out.println("Nie rozumiem.");
+//            }
+//
+//            System.out.println(Parser.talk(tokenizer, orderHandler, menuList, time));
+//        }
+//    }
 
 
     private static void proba1(Tokenizer tokenizer) throws IOException

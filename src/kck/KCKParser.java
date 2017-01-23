@@ -12,15 +12,16 @@ import java.util.Random;
 public class KCKParser {
 
     private static OrderHandler orderHandler = new OrderHandler();
-
+    private static Long time = System.currentTimeMillis();
     public static void makeNewClient() {
         orderHandler = new OrderHandler();
+         time = System.currentTimeMillis();
     }
 
     public static String getTokenizedText(String userText) throws IOException {
         Tokenizer tokenizer = tokenize(userText);
         MenuList menuList = new MenuList();
-        return Parser.talk(tokenizer, orderHandler, menuList);
+        return Parser.talk(tokenizer, orderHandler, menuList, time);
     }
 
     private static Tokenizer tokenize(String userText) {
