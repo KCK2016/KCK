@@ -243,6 +243,9 @@ controls.text-area {
     -fx-font-size: 18pt;
 }
 
-#waiter-circle {
-    -fx-fill: #717171;
+#waiter-button {
+    -fx-background-color: #515151;
+    -fx-background-radius: 50%;
+    -fx-opacity: 1.0;
+    -fx-font-size: 18pt;
 }

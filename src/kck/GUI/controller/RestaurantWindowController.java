@@ -46,14 +46,14 @@ public class RestaurantWindowController {
     @FXML
     TextArea textAreaOutput;
     @FXML
-    Circle waiterCicle;
+    Circle buttonWaiter;
 
     /**
      * Is called by the main application to give a reference back to itself.
      */
     public void setMainApp(RestaurantWindow mainApp) {
         this.mainApp = mainApp;
-        waiterCicle.toFront();
+        buttonWaiter.toFront();
         setCharacterLimit(textAreaCommand, TEXT_FIELD_MAX_LENGTH);
         setDishOfTheDay();
     }
@@ -149,7 +149,7 @@ public class RestaurantWindowController {
         Point2D startPoint;
         if (tableChoosenInstance != null){
             //startPoint = new Point2D(waiterCicle.getLayoutX(),
-            //   waiterCicle.getLayoutY());
+            //   buttonWaiter.getLayoutY());
         }
         else{
             //TODO

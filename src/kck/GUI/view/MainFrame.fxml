@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +11,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -77,11 +75,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Button>
-                                    <Circle id="waiter-circle" fill="#616161" radius="26.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" StackPane.alignment="TOP_RIGHT">
-                                       <StackPane.margin>
-                                          <Insets right="-26.0" />
-                                       </StackPane.margin>
-                                    </Circle>
+                                    <Button id="waiter-button" alignment="CENTER" disable="true" focusTraversable="false" mnemonicParsing="false" text="K" StackPane.alignment="BOTTOM_RIGHT" />
                                  </children>
                               </StackPane>
                               <StackPane fx:id="waiterCircle" layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1">
@@ -121,7 +115,7 @@
                   <AnchorPane maxHeight="154.0" minHeight="69.0" prefHeight="69.0" prefWidth="600.0" SplitPane.resizableWithParent="false">
                      <children>
                         <TextArea fx:id="textAreaCommand" layoutY="36.0" onKeyPressed="#textAreaCommandKeyPressed" promptText="Wpisz frazę..." styleClass="input" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0" />
-                        <Button id="send" alignment="CENTER" layoutX="480.0" mnemonicParsing="false" onMouseClicked="#buttonSubmitClick" prefHeight="69.0" prefWidth="120.0" text="Wyślij" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <Button id="send" alignment="CENTER" focusTraversable="false" layoutX="480.0" mnemonicParsing="false" onMouseClicked="#buttonSubmitClick" prefHeight="69.0" prefWidth="120.0" text="Wyślij" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -137,7 +131,7 @@
       </AnchorPane>
       <AnchorPane minHeight="600.0" minWidth="260.0" prefHeight="600.0" prefWidth="300.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="20.0" prefHeight="40.0" text="Konwersacja" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" lineSpacing="20.0" prefHeight="40.0" text="Konwersacja" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="18.0" />
                </font>
