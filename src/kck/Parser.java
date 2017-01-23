@@ -78,7 +78,7 @@ public class Parser
         (tokens.powitanie +" "+ tokens.zamownienie +" "+ tokens.produkt)  || zdanie.equals
         (tokens.powitanie +" "+ tokens.przecinek +" "+ tokens.zamownienie +" "+ tokens.produkt)  || zdanie.equals
         (tokens.zamownienie +" "+ tokens.produkt)  || zdanie.equals
-        (tokens.zamownienie +" "+ tokens.zamowic +" "+ tokens.produkt);
+        (tokens.zamownienie +" "+ tokens.zamowic +" "+ tokens.produkt) || zdanie.equals(tokens.produkt + " "+ tokens.zamownienie) || zdanie.equals(tokens.produkt);
 
         Boolean zamowienie_dania_dnia = zdanie.equals
         (tokens.powitanie +" "+ tokens.przecinek +" "+ tokens.zamownienie +" "+ tokens.danie_dnia) || zdanie.equals

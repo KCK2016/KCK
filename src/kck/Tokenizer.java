@@ -118,18 +118,19 @@ public class Tokenizer
 
 
         // sortowanie po dlufgosci pierwszego slowa z lini z pliku
-        /*
+
         token_txt_list.sort(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
                 String[] text1 = o1.split(",");
                 String[] text2 = o2.split(",");
                 if(text1[0].length() > text2[0].length()) return -1;
+                else if (text1[0].length() == text2[0].length()) return 0;
                 else return 1;
             }
         });
 
-        */
+
 
         for(String line: token_txt_list) {
             String[] line_split = line.trim().split(",");

@@ -13,8 +13,6 @@ public class Waiter {
 
     KCK kck = new KCK("");
 
-
-
 String talk(Tokenizer tokenizer, OrderHandler orderHandler, MenuList menuList) throws IOException {
     String response = "";
     List<Tokenizer.Token> list = new ArrayList<Tokenizer.Token>();
